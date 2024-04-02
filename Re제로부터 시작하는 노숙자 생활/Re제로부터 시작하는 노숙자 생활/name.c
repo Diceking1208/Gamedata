@@ -50,14 +50,14 @@ int main(void)
         }
         // 화면 정리
         system("@cls||clear");
-        printf("지갑 : %d 원\n\n", wallet);
-        printf("현재 집 : %s\n", house[level]);
-        printf("    < 성공확률 : %d %% >\n", Num);
-        printf("집을 강화 하시겠습니까 ? \n");
-        printf("1.집 구매      (- %d 원)\n",buy);
-        printf("2.거지로 살기  (게임종료)\n");
-        printf("3.집 판매      (+ %d 원)\n",sell);
-        printf("---------------------------\n");
+        printf(" 지갑 : %d 원\n\n", wallet);
+        printf(" 현재 집 : %s\n", house[level]);
+        printf("   < 성공확률 : %d %% >\n", Num);
+        printf(" 집을 강화 하시겠습니까 ? \n\n");
+        printf("     1.집 구매      (- %d 원)\n",buy);
+        printf("     2.거지로 살기  (게임종료)\n");
+        printf("     3.집 판매      (+ %d 원)\n",sell);
+        printf("-------------------------------\n");
         printf("        입력 : ");
         scanf_s("%d", &isTry);
 
@@ -70,14 +70,14 @@ int main(void)
             if (randNum < Num) {
                 // 성공화면 출력
                 wallet -= buy;
-                printf("\n\n지갑 : %d 원\n\ㅜ", wallet);
+                printf("\n\n지갑 : %d 원\n\n", wallet);
                 printf("************* SUCCESS *************\n");
                 printf("  %s  ->  %s    \n", house[level], house[level + 1]);
                 printf("************* SUCCESS *************\n");
                 level++;
             }
             else
-            {
+            {   
                 // 실패화면 출력
                 wallet -= buy;
                 printf("\n\n지갑 : %d 원\n", wallet);
@@ -95,7 +95,7 @@ int main(void)
         case 3:
             wallet += sell;
             printf("\n\n지갑 : %d 원\n", wallet);
-            printf("  %s  ->  %s    \n\n", house[level], house[level - 1]);
+            printf("  %s  ->  %s    \n\n", house[level], house[0]);
             level = 0;
         }
         // 진행상황 확인이 용이 하도록 대기
