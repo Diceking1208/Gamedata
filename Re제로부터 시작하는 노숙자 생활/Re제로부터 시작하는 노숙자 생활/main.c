@@ -106,6 +106,7 @@ int main(void)
             printf("\n\n지갑 : %d 원\n", wallet);
             printf("  %s  ->  %s    \n\n", house[level], house[0]);
             level = 0;
+            break;
         case 4:
             // 저장하고 처음부터 다시 시작하는 기능 추가
             while (1) 
