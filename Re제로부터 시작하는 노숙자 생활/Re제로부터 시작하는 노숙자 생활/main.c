@@ -63,7 +63,6 @@ int main(void)
         printf("     2.거지로 살기  (게임종료)\n");
         printf("     3.집 판매      (+ %d 원)\n", sell);
         printf("     4.저장하기     (처음부터다시)\n");
-        printf("     5.불러오기\n");
         printf("-------------------------------\n");
         printf("        입력 : ");
         scanf_s("%d", &isTry);
@@ -110,7 +109,7 @@ int main(void)
             break;
         case 4:
             // 저장하고 처음부터 다시 시작하는 기능 추가
-            while (1) 
+            while (1)
             {
                 printf("저장할 파일을 선택하세요 (1~3): ");
                 if (scanf_s("%d", &selectedFile) != 1 || selectedFile < 1 || selectedFile > 3)
@@ -118,7 +117,7 @@ int main(void)
                     printf("잘못된 입력입니다. 1부터 3 사이의 숫자를 입력해주세요.\n");
                     while (getchar() != '\n'); // 입력 버퍼 비우기
                 }
-                else 
+                else
                 {
                     break;
                 }
@@ -136,15 +135,14 @@ int main(void)
     return 0;
 }
 
-void saveToFile(int level, const char* house, int wallet, int index) 
+void saveToFile(int level, const char* house, int wallet, int index)
 {
     FILE* file = fopen(FILE_PATH[index], "w"); // 파일을 쓰기 모드로 열기 (기존 내용 삭제)
-    if (file != NULL) 
+    if (file != NULL)
     {
         fprintf(file, "=======================\n강화 level:%d\n집 이름:%s\n지갑:%d\n=======================\n", level, house, wallet);
-        fclose(file); 
+        fclose(file);
     }
 }
-
 
 
