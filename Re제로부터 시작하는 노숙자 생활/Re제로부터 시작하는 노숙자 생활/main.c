@@ -10,7 +10,7 @@
 char FILE_PATH[][MAX_FILE_PATH_LENGTH] = { "resultdata1.txt", "resultdata2.txt", "resultdata3.txt" };
 
 void saveToFile(int level, const char* house, int wallet, int index);
-
+ddd
 int main(void)
 {
     int isTry = 0;                          // 강화를 할 것인지 선택
