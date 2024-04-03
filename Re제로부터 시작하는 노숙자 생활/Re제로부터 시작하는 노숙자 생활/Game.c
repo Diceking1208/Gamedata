@@ -7,8 +7,6 @@
 #define FILE_PATH "resultdata.txt"          // 결과를 저장할 파일 경로
 
 
-
-
     int main(void)
 {
     int isTry = 0;                          // 강화를 할 것인지 선택
@@ -81,7 +79,7 @@
             {
                 // 실패화면 출력
                 printf("\n\n아 망했네..\n");
-                printf("%s ...  집을 잃었습니다.\n", house[0]);
+                printf("%s ...  집을 잃었습니다.\n", house[level]);
                 printf("결과값이 resultdata.txt에 저장되었습니다, 결과는 계속 누적되어 저장됩니다.\n");
 
                 // 강화 실패 시 레벨과 집 이름을 파일에 저장
