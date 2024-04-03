@@ -4,6 +4,10 @@
 #include <conio.h>
 
 #define MAX_PROBABILITY 100.0f              // 성공확률 최대치
+#define FILE_PATH "resultdata.txt"          // 결과를 저장할 파일 경로
+
+
+
 
     int main(void)
 {
@@ -78,6 +82,15 @@
                 // 실패화면 출력
                 printf("\n\n아 망했네..\n");
                 printf("%s ...  집을 잃었습니다.\n", house[0]);
+                printf("결과값이 resultdata.txt에 저장되었습니다, 결과는 계속 누적되어 저장됩니다.\n");
+
+                // 강화 실패 시 레벨과 집 이름을 파일에 저장
+                FILE* file = fopen(FILE_PATH, "a");
+                if (file != NULL) {
+                    fprintf(file, "=======================\n강화 level:%d\n집 이름:%s\n======================= \n", level, house[level]); // 강화 실패 시 레벨과 집 이름을 파일에 기록
+                    fclose(file);
+                }
+
 
                 // 각종 수치 초기화
                 level = 0;
