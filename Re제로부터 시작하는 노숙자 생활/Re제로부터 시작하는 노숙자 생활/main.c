@@ -54,10 +54,11 @@ int main(void)
         }
         // 화면 정리
         system("@cls||clear");
-        printf(" 지갑 : %d 원\n\n", wallet);
-        printf(" 현재 집 : %s\n", house[level]);
-        printf("   < 성공확률 : %d %% >\n", Num);
+        printf("     가진 돈 : %d 원\n", wallet);
+        printf("     현재 집 : %s\n", house[level]);
         printf(" 집을 강화 하시겠습니까 ? \n\n");
+        printf("   < 성공확률 : %d %% >\n", Num);
+        printf("-------------------------------\n");
         printf("     1.집 구매      (- %d 원)\n", buy);
         printf("     2.거지로 살기  (게임종료)\n");
         printf("     3.집 판매      (+ %d 원)\n", sell);
