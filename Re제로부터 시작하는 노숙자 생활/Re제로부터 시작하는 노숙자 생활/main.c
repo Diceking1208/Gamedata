@@ -3,6 +3,7 @@
 #include <time.h>
 #include <conio.h>
 
+//안된다고 해서 일단 해보는중 입니당
 #define MAX_PROBABILITY 100.0f              // 성공확률 최대치
 #define MAX_FILE_PATH_LENGTH 20             // 파일 경로의 최대 길이 정의
 
