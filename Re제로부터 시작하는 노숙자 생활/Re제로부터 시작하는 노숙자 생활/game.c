@@ -3,6 +3,20 @@
 #include <time.h>
 #include <conio.h>
 
+<<<<<<< HEAD:Reì œë¡œë¶€í„° ì‹œì‘í•˜ëŠ” ë…¸ìˆ™ì ìƒí™œ/Reì œë¡œë¶€í„° ì‹œì‘í•˜ëŠ” ë…¸ìˆ™ì ìƒí™œ/game.c
+=======
+//¾ÈµÈ´Ù°í ÇØ¼­ ÀÏ´Ü ÇØº¸´ÂÁß ÀÔ´Ï´ç
+#define MAX_PROBABILITY 100.0f              // ¼º°øÈ®·ü ÃÖ´ëÄ¡
+#define MAX_FILE_PATH_LENGTH 20             // ÆÄÀÏ °æ·ÎÀÇ ÃÖ´ë ±æÀÌ Á¤ÀÇ
+
+// ÆÄÀÏ °æ·Î ¹è¿­ Á¤ÀÇ
+char FILE_PATH[][MAX_FILE_PATH_LENGTH] = { "resultdata1.txt", "resultdata2.txt", "resultdata3.txt" };
+
+void saveToFile(int level, const char* house, int wallet, int index);
+
+int main(void)
+{
+>>>>>>> d9b195837b214ea4111c509f5b231203d71e2372:Reì œë¡œë¶€í„° ì‹œì‘í•˜ëŠ” ë…¸ìˆ™ì ìƒí™œ/Reì œë¡œë¶€í„° ì‹œì‘í•˜ëŠ” ë…¸ìˆ™ì ìƒí™œ/main.c
     int isTry = 0;                          // °­È­¸¦ ÇÒ °ÍÀÎÁö ¼±ÅÃ
     int level = 0;                          // ÇöÀç ¹«±âÀÇ ·¹º§
     time_t retTime = 0;                     // ´ë±â½Ã°£ ÀÓ½ÃÀúÀå
