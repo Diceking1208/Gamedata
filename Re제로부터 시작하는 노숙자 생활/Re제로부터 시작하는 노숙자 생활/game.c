@@ -3,23 +3,8 @@
 #include <time.h>
 #include <conio.h>
 
-<<<<<<< HEAD:Reì œë¡œë¶€í„° ì‹œì‘í•˜ëŠ” ë…¸ìˆ™ì ìƒí™œ/Reì œë¡œë¶€í„° ì‹œì‘í•˜ëŠ” ë…¸ìˆ™ì ìƒí™œ/game.c
-=======
-//¾ÈµÈ´Ù°í ÇØ¼­ ÀÏ´Ü ÇØº¸´ÂÁß ÀÔ´Ï´ç
-#define MAX_PROBABILITY 100.0f              // ¼º°øÈ®·ü ÃÖ´ëÄ¡
-#define MAX_FILE_PATH_LENGTH 20             // ÆÄÀÏ °æ·ÎÀÇ ÃÖ´ë ±æÀÌ Á¤ÀÇ
-
-// ÆÄÀÏ °æ·Î ¹è¿­ Á¤ÀÇ
-char FILE_PATH[][MAX_FILE_PATH_LENGTH] = { "resultdata1.txt", "resultdata2.txt", "resultdata3.txt" };
-
-void saveToFile(int level, const char* house, int wallet, int index);
-
-int main(void)
-{
->>>>>>> d9b195837b214ea4111c509f5b231203d71e2372:Reì œë¡œë¶€í„° ì‹œì‘í•˜ëŠ” ë…¸ìˆ™ì ìƒí™œ/Reì œë¡œë¶€í„° ì‹œì‘í•˜ëŠ” ë…¸ìˆ™ì ìƒí™œ/main.c
     int isTry = 0;                          // °­È­¸¦ ÇÒ °ÍÀÎÁö ¼±ÅÃ
     int level = 0;                          // ÇöÀç ¹«±âÀÇ ·¹º§
-    time_t retTime = 0;                     // ´ë±â½Ã°£ ÀÓ½ÃÀúÀå
     int randNum = 0;                        // ·£´ı°ªÀ» ÀúÀå
     int Num = 100;                          // È®·ü ¼ıÀÚ
     int furnitureNum = 0;                   // °¡±¸ ¹øÈ£
@@ -31,9 +16,9 @@ int main(void)
     char* house[] = { "¼­¿ï¿ª ³ë¼÷","¹İÁöÇÏ¿ø·ë","¹ú·¹ ³ª¿À´Â ¿ø·ë", "Á¼Àº ¿ø·ë","Àû´çÇÑ ¿ø·ë","³ĞÀº ¿ø·ë","¹ú·¹ °¡²û ³ª¿À´Â Åõ·ë","Ãş°£¼ÒÀ½ Áö¸®´Â Åõ·ë","º¯±â Àß ¸·È÷´Â Åõ·ë","Àû´çÇÑ Åõ·ë","Â¼´Â Åõ·ë","°Á ¾ÆÆÄÆ®","±×³É ÁÁÀº ¾ÆÆÄÆ®","¸ÚÀÖ´Â ¾ÆÆÄÆ®","È£È­·Î¿î ¾ÆÆÄÆ®","¸¶´çÀÖ´Â ´Üµ¶ÁÖÅÃ","½Ã±×´Ï¿¤" };
     char* furniture[] = { "²É¹«´Ì º®Áö", "³ë¶õ»ö ¹Ù´Ú", "È²±İº¯±â", "¸»ÇÏ´ÂÀÇÀÚ","¼Ö·Î¹è°Ô", "¾Ë·Ï´Ş·Ï¿ÊÀå" };
     
-    int main(void)
+int main(void)
 {
-        maingame();
+     maingame();
 }
 
 int BuyMoney()
@@ -116,8 +101,7 @@ int maingame()
         case 14: Num = 60; buy = 30000; sell = 80000; break;
         case 15: Num = 58; buy = 33000; sell = 85000; break;
         case 16: Num = 55; buy = 36000; sell = 90000; break;
-        default: Num = 100; buy = 2000; sell = 0;
-            break;
+        default: Num = 100; buy = 2000; sell = 0;     break;
         }
         // È­¸é Á¤¸®
         system("@cls||clear");
@@ -173,7 +157,6 @@ int maingame()
 
         case 4:
             Store();
-
         }
         // ÁøÇà»óÈ² È®ÀÎÀÌ ¿ëÀÌ ÇÏµµ·Ï ´ë±â
         printf("\n°è¼ÓÇÏ·Á¸é ¾Æ¹« Å°³ª ´©¸£½Ê½Ã¿À.\n");
