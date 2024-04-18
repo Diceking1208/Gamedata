@@ -3,78 +3,21 @@
 #include <time.h>
 #include <conio.h>
 
-    int isTry = 0;                          // 강화를 할 것인지 선택
-    int level = 0;                          // 현재 무기의 레벨
-    int randNum = 0;                        // 랜덤값을 저장
-    int Num = 100;                          // 확률 숫자
-    int furnitureNum = 0;                   // 가구 번호
-    int furnitureBuy = 0;
-    int buyMoney = 0;                       //가구 가격
-    int buy = 0;                            // 집 구매
-    int sell = 0;                           // 집 팔때
-    int wallet = 50000;                     // 현재 가지고 있는 금액
-    char* house[] = { "서울역 노숙","반지하원룸","벌레 나오는 원룸", "좁은 원룸","적당한 원룸","넓은 원룸","벌레 가끔 나오는 투룸","층간소음 지리는 투룸","변기 잘 막히는 투룸","적당한 투룸","쩌는 투룸","걍 아파트","그냥 좋은 아파트","멋있는 아파트","호화로운 아파트","마당있는 단독주택","시그니엘" };
-    char* furniture[] = { "꽃무늬 벽지", "노란색 바닥", "황금변기", "말하는의자","솔로배게", "알록달록옷장" };
+
+int isTry = 0;                          // 강화를 할 것인지 선택
+int level = 0;                          // 현재 무기의 레벨
+int randNum = 0;                        // 랜덤값을 저장
+int Num = 100;                          // 확률 숫자
+int furnitureNum = 0;                   // 가구 번호
+int furnitureBuy = 0;
+int buyMoney = 0;                       //가구 가격
+int buy = 0;                            // 집 구매
+int sell = 0;                           // 집 팔때
+int wallet = 50000;                     // 현재 가지고 있는 금액
+char* house[] = { "서울역 노숙","반지하원룸","벌레 나오는 원룸", "좁은 원룸","적당한 원룸","넓은 원룸","벌레 가끔 나오는 투룸","층간소음 지리는 투룸","변기 잘 막히는 투룸","적당한 투룸","쩌는 투룸","걍 아파트","그냥 좋은 아파트","멋있는 아파트","호화로운 아파트","마당있는 단독주택","시그니엘" };
     
+
 int main(void)
-{
-     maingame();
-}
-
-int BuyMoney()
-{
-    furnitureNum = rand() % 6;
-    if (furniture[furnitureNum] = 0)
-    {buyMoney = 5500;}
-    else if (furniture[furnitureNum] = 0)
-    {buyMoney = 25500;}
-    else if (furniture[furnitureNum] = 0)
-    { buyMoney = 32500;}
-    else if (furniture[furnitureNum] = 0)
-    { buyMoney = 4500;}
-    else if (furniture[furnitureNum] = 0)
-    { buyMoney = 9300;}
-    else if (furniture[furnitureNum] = 0)
-    {buyMoney = 7000;}
-    return 0;
-}
-
-int Store()
-{
-    system("@cls||clear");
-    printf("     가진 돈 : %d 원\n", wallet);
-    printf("     현재 집 : %s\n\n", house[level]);
-    printf("        인테리어 상점\n");
-    printf("       < 오늘의 아이템  >\n");
-    printf("-------------------------------\n");
-    BuyMoney();
-    printf("     1.%s    (- %d 원)\n", furniture[furnitureNum], buyMoney);
-    BuyMoney();
-    printf("     2.%s    (- %d 원)\n", furniture[furnitureNum], buyMoney);
-    BuyMoney();
-    printf("     3.%s    (- %d 원)\n", furniture[furnitureNum], buyMoney);
-    BuyMoney();
-    printf("     4.%s    (- %d 원)\n", furniture[furnitureNum], buyMoney);
-    printf("     5.게임으로 돌아가기 \n ");
-    printf("-------------------------------\n");
-    printf("        입력 : ");
-    scanf_s("%d", &furnitureBuy);
-
-    if(furnitureBuy == 5)
-    {
-        maingame();
-    }
-    else if (furnitureBuy == 1 || furnitureBuy == 2 || furnitureBuy == 3 || furnitureBuy == 4)
-    {
-        wallet -= buyMoney;
-        printf("%s 구매가 완료 되었습니다.", furniture[furnitureBuy]);
-        printf("     가진 돈 : %d 원\n", wallet);
-    }
-    return 0;
-}
-
-
-int maingame()
 {
     srand((int)time(NULL));                 // 랜덤 시드값 설정
 
@@ -103,7 +46,71 @@ int maingame()
         case 16: Num = 55; buy = 36000; sell = 90000; break;
         default: Num = 100; buy = 2000; sell = 0;     break;
         }
-        // 화면 정리
+         maingame();
+         // 진행상황 확인이 용이 하도록 대기
+         printf("\n계속하려면 아무 키나 누르십시오.\n");
+         _getch();
+    }
+    return 0;
+}
+
+
+int Store()
+{
+   system("@cls||clear");
+    printf("     가진 돈 : %d 원\n", wallet);
+    printf("     현재 집 : %s\n\n", house[level]);
+    printf("        인테리어 상점\n");
+    printf("       < 오늘의 아이템  >\n");
+    printf("-------------------------------\n");
+    BuyMoney();
+    printf("     1.꽃무늬 벽지     (- 5200 원) \n");
+    BuyMoney();
+    printf("     2.노란색 바닥     (- 9700 원)\n");
+    BuyMoney();
+    printf("     3.황금변기     (- 128,000 원)\n");
+    BuyMoney();
+    printf("     4.알록달록옷장  (- 34,000 원)\n");
+    printf("     5.게임으로 돌아가기 \n ");
+    printf("-------------------------------\n");
+    printf("        입력 : ");
+    scanf_s("%d", &furnitureBuy);
+
+    
+    switch (furnitureBuy)
+    {
+        case 1:
+            wallet -= 5200;
+            printf("구매가 완료 되었습니다.");
+            printf("     가진 돈 : %d 원\n", wallet);
+            break;
+        case 2:
+            wallet -= 9700;
+            printf("구매가 완료 되었습니다.");
+            printf("     가진 돈 : %d 원\n", wallet);
+            break;
+        case 3:
+            wallet -= 128000;
+            printf("구매가 완료 되었습니다.");
+            printf("     가진 돈 : %d 원\n", wallet);
+            break;
+        case 4:
+            wallet -= 34000;
+            printf("구매가 완료 되었습니다.");
+            printf("     가진 돈 : %d 원\n", wallet);
+            break;
+        case 5:
+            break;
+        default:
+            maingame();
+            break;
+    }
+    return 0;
+}
+
+
+int maingame()
+{
         system("@cls||clear");
         printf("     가진 돈 : %d 원\n", wallet);
         printf("     현재 집 : %s\n", house[level]);
@@ -121,8 +128,8 @@ int maingame()
 
         switch (isTry)
         {
-        case 1:        // 강화에 도전 할 경우
-            randNum = rand() % 100 + 1;
+            case 1:        // 강화에 도전 할 경우
+                randNum = rand() % 100 + 1;
 
             // 추출한 랜덤 값이 성공확률 보다 작으면 성공
             if (randNum < Num) {
@@ -144,23 +151,21 @@ int maingame()
                 level = 0;
             }
             break;
-        case 2:
-            // 포기를 할 경우 프로그램 종료
-            printf("\n         어 나가~\n");
-            return -1;
-        case 3:
-            wallet += sell;
-            printf("\n\n지갑 : %d 원\n", wallet);
-            printf("  %s  ->  %s    \n\n", house[level], house[0]);
-            level = 0;
-            break;
 
-        case 4:
-            Store();
+            case 2:
+                // 포기를 할 경우 프로그램 종료
+                printf("\n         어 나가~\n");
+                return -1;
+                break;
+
+            case 3:
+                wallet += sell;
+                printf("\n\n지갑 : %d 원\n", wallet);
+                printf("  %s  ->  %s    \n\n", house[level], house[0]);
+                level = 0;
+                break;
+
+            case 4:
+                Store();
         }
-        // 진행상황 확인이 용이 하도록 대기
-        printf("\n계속하려면 아무 키나 누르십시오.\n");
-        _getch();
-    }
-    return 0;
 }
