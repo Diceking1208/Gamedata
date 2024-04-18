@@ -3,27 +3,80 @@
 #include <time.h>
 #include <conio.h>
 
-#define MAX_PROBABILITY 100.0f              // 성공확률 최대치
-#define MAX_FILE_PATH_LENGTH 20             // 파일 경로의 최대 길이 정의
-
-// 파일 경로 배열 정의
-char FILE_PATH[][MAX_FILE_PATH_LENGTH] = { "resultdata1.txt", "resultdata2.txt", "resultdata3.txt" };
-
-void saveToFile(int level, const char* house, int wallet, int index);
-
-int main(void)
-{
     int isTry = 0;                          // 강화를 할 것인지 선택
     int level = 0;                          // 현재 무기의 레벨
     time_t retTime = 0;                     // 대기시간 임시저장
     int randNum = 0;                        // 랜덤값을 저장
     int Num = 100;                          // 확률 숫자
+    int furnitureNum = 0;                   // 가구 번호
+    int furnitureBuy = 0;
+    int buyMoney = 0;                       //가구 가격
     int buy = 0;                            // 집 구매
     int sell = 0;                           // 집 팔때
     int wallet = 50000;                     // 현재 가지고 있는 금액
-    int selectedFile;                       // 저장하기 기능 추가
-
     char* house[] = { "서울역 노숙","반지하원룸","벌레 나오는 원룸", "좁은 원룸","적당한 원룸","넓은 원룸","벌레 가끔 나오는 투룸","층간소음 지리는 투룸","변기 잘 막히는 투룸","적당한 투룸","쩌는 투룸","걍 아파트","그냥 좋은 아파트","멋있는 아파트","호화로운 아파트","마당있는 단독주택","시그니엘" };
+    char* furniture[] = { "꽃무늬 벽지", "노란색 바닥", "황금변기", "말하는의자","솔로배게", "알록달록옷장" };
+    
+    int main(void)
+{
+        maingame();
+}
+
+int BuyMoney()
+{
+    furnitureNum = rand() % 6;
+    if (furniture[furnitureNum] = 0)
+    {buyMoney = 5500;}
+    else if (furniture[furnitureNum] = 0)
+    {buyMoney = 25500;}
+    else if (furniture[furnitureNum] = 0)
+    { buyMoney = 32500;}
+    else if (furniture[furnitureNum] = 0)
+    { buyMoney = 4500;}
+    else if (furniture[furnitureNum] = 0)
+    { buyMoney = 9300;}
+    else if (furniture[furnitureNum] = 0)
+    {buyMoney = 7000;}
+    return 0;
+}
+
+int Store()
+{
+    system("@cls||clear");
+    printf("     가진 돈 : %d 원\n", wallet);
+    printf("     현재 집 : %s\n\n", house[level]);
+    printf("        인테리어 상점\n");
+    printf("       < 오늘의 아이템  >\n");
+    printf("-------------------------------\n");
+    BuyMoney();
+    printf("     1.%s    (- %d 원)\n", furniture[furnitureNum], buyMoney);
+    BuyMoney();
+    printf("     2.%s    (- %d 원)\n", furniture[furnitureNum], buyMoney);
+    BuyMoney();
+    printf("     3.%s    (- %d 원)\n", furniture[furnitureNum], buyMoney);
+    BuyMoney();
+    printf("     4.%s    (- %d 원)\n", furniture[furnitureNum], buyMoney);
+    printf("     5.게임으로 돌아가기 \n ");
+    printf("-------------------------------\n");
+    printf("        입력 : ");
+    scanf_s("%d", &furnitureBuy);
+
+    if(furnitureBuy == 5)
+    {
+        maingame();
+    }
+    else if (furnitureBuy == 1 || furnitureBuy == 2 || furnitureBuy == 3 || furnitureBuy == 4)
+    {
+        wallet -= buyMoney;
+        printf("%s 구매가 완료 되었습니다.", furniture[furnitureBuy]);
+        printf("     가진 돈 : %d 원\n", wallet);
+    }
+    return 0;
+}
+
+
+int maingame()
+{
     srand((int)time(NULL));                 // 랜덤 시드값 설정
 
     while (1)
@@ -62,7 +115,8 @@ int main(void)
         printf("     1.집 구매      (- %d 원)\n", buy);
         printf("     2.거지로 살기  (게임종료)\n");
         printf("     3.집 판매      (+ %d 원)\n", sell);
-        printf("     4.저장하기     (처음부터다시)\n");
+        printf("     4.가구 구매     \n");
+        printf("     5.저장하기     (처음부터다시)\n");
         printf("-------------------------------\n");
         printf("        입력 : ");
         scanf_s("%d", &isTry);
@@ -89,11 +143,6 @@ int main(void)
                 printf("\n\n지갑 : %d 원\n", wallet);
                 printf("         아 망했네...\n");
                 printf("집 '%s' 을 잃었습니다.\n", house[level]);
-
-                // 강화 실패 시 레벨과 집 이름을 파일에 저장
-                saveToFile(level, house[level], wallet, 0); // 현재 상황을 파일에 저장
-
-                // 각종 수치 초기화
                 level = 0;
             }
             break;
@@ -107,26 +156,10 @@ int main(void)
             printf("  %s  ->  %s    \n\n", house[level], house[0]);
             level = 0;
             break;
+
         case 4:
-            // 저장하고 처음부터 다시 시작하는 기능 추가
-            while (1)
-            {
-                printf("저장할 파일을 선택하세요 (1~3): ");
-                if (scanf_s("%d", &selectedFile) != 1 || selectedFile < 1 || selectedFile > 3)
-                {
-                    printf("잘못된 입력입니다. 1부터 3 사이의 숫자를 입력해주세요.\n");
-                    while (getchar() != '\n'); // 입력 버퍼 비우기
-                }
-                else
-                {
-                    break;
-                }
-            }
-            saveToFile(level, house[level], wallet, selectedFile - 1); // 현재 상황을 선택한 파일에 저장
-            printf("\n저장되었습니다. 처음부터 다시 시작합니다.\n");
-            level = 0; // 레벨 초기화
-            wallet = 50000; // 지갑 초기화
-            break;
+            Store();
+
         }
         // 진행상황 확인이 용이 하도록 대기
         printf("\n계속하려면 아무 키나 누르십시오.\n");
@@ -134,15 +167,3 @@ int main(void)
     }
     return 0;
 }
-
-void saveToFile(int level, const char* house, int wallet, int index)
-{
-    FILE* file = fopen(FILE_PATH[index], "w"); // 파일을 쓰기 모드로 열기 (기존 내용 삭제)
-    if (file != NULL)
-    {
-        fprintf(file, "=======================\n강화 level:%d\n집 이름:%s\n지갑:%d\n=======================\n", level, house, wallet);
-        fclose(file);
-    }
-}
-
-
