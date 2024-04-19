@@ -56,7 +56,6 @@ int main(void)
     return 0;
 }
 
-
 int Store()
 {
    system("@cls||clear");
@@ -65,13 +64,9 @@ int Store()
     printf("        인테리어 상점\n");
     printf("       < 오늘의 아이템  >\n");
     printf("-------------------------------\n");
-    BuyMoney();
     printf("     1.꽃무늬 벽지     (- 5200 원) \n");
-    BuyMoney();
     printf("     2.노란색 바닥     (- 9700 원)\n");
-    BuyMoney();
     printf("     3.황금변기     (- 128,000 원)\n");
-    BuyMoney();
     printf("     4.알록달록옷장  (- 34,000 원)\n");
     printf("     5.게임으로 돌아가기 \n ");
     printf("-------------------------------\n");
@@ -109,7 +104,6 @@ int Store()
     }
     return 0;
 }
-
 
 int maingame()
 {
@@ -187,8 +181,13 @@ int login()
 
     switch (userid)
     {
+        int input=0;
         case 1234:
             wallet = 999999999;
+            printf(" 금액은 999,999,999원으로 시작됩니다. \n");
+            printf(" 시작할 레벨을 입력하세요 :  ");
+            scanf_s("%d", &input);
+            level = input;
             break;
         default:
             break;
