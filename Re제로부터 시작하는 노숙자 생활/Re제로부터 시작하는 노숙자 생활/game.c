@@ -3,7 +3,8 @@
 #include <time.h>
 #include <conio.h>
 
-
+int userid=0;
+int Isgame = 1;
 int isTry = 0;                          // 강화를 할 것인지 선택
 int level = 0;                          // 현재 무기의 레벨
 int randNum = 0;                        // 랜덤값을 저장
@@ -21,31 +22,32 @@ int main(void)
 {
     srand((int)time(NULL));                 // 랜덤 시드값 설정
 
-    while (1)
+    while (Isgame)
     {
         // 화면 정리
         system("@cls||clear");
         switch (level)
         {
-        case 0:  Num = 100; buy = 2000;  sell = 0;  break;
-        case 1:  Num = 95; buy = 4000;  sell = 10000; break;
-        case 2:  Num = 90; buy = 6000;  sell = 20000; break;
-        case 3:  Num = 87; buy = 8000;  sell = 25000; break;
-        case 4:  Num = 85; buy = 10000; sell = 30000; break;
-        case 5:  Num = 83; buy = 12000; sell = 35000; break;
-        case 6:  Num = 80; buy = 14000; sell = 40000; break;
-        case 7:  Num = 77; buy = 16000; sell = 45000; break;
-        case 8:  Num = 75; buy = 18000; sell = 50000; break;
-        case 9:  Num = 73; buy = 20000; sell = 55000; break;
-        case 10: Num = 70; buy = 22000; sell = 60000; break;
-        case 11: Num = 68; buy = 24000; sell = 65000; break;
-        case 12: Num = 65; buy = 26000; sell = 70000; break;
-        case 13: Num = 63; buy = 28000; sell = 75000; break;
-        case 14: Num = 60; buy = 30000; sell = 80000; break;
-        case 15: Num = 58; buy = 33000; sell = 85000; break;
-        case 16: Num = 55; buy = 36000; sell = 90000; break;
-        default: Num = 100; buy = 2000; sell = 0;     break;
+            case 0:  Num = 100; buy = 2000;  sell = 0;  break;
+            case 1:  Num = 95; buy = 4000;  sell = 10000; break;
+            case 2:  Num = 90; buy = 6000;  sell = 20000; break;
+            case 3:  Num = 87; buy = 8000;  sell = 25000; break;
+            case 4:  Num = 85; buy = 10000; sell = 30000; break;
+            case 5:  Num = 83; buy = 12000; sell = 35000; break;
+            case 6:  Num = 80; buy = 14000; sell = 40000; break;
+            case 7:  Num = 77; buy = 16000; sell = 45000; break;
+            case 8:  Num = 75; buy = 18000; sell = 50000; break;
+            case 9:  Num = 73; buy = 20000; sell = 55000; break;
+            case 10: Num = 70; buy = 22000; sell = 60000; break;
+            case 11: Num = 68; buy = 24000; sell = 65000; break;
+            case 12: Num = 65; buy = 26000; sell = 70000; break;
+            case 13: Num = 63; buy = 28000; sell = 75000; break;
+            case 14: Num = 60; buy = 30000; sell = 80000; break;
+            case 15: Num = 58; buy = 33000; sell = 85000; break;
+            case 16: Num = 55; buy = 36000; sell = 90000; break;
+            default: Num = 100; buy = 2000; sell = 0;     break;
         }
+        login();
          maingame();
          // 진행상황 확인이 용이 하도록 대기
          printf("\n계속하려면 아무 키나 누르십시오.\n");
@@ -155,6 +157,7 @@ int maingame()
             case 2:
                 // 포기를 할 경우 프로그램 종료
                 printf("\n         어 나가~\n");
+                Isgame = 0;
                 return -1;
                 break;
 
@@ -167,5 +170,28 @@ int maingame()
 
             case 4:
                 Store();
+                break;
         }
+}
+
+int login()
+{
+    system("@cls||clear");
+    printf("            로 그 인\n", wallet);
+    printf("-------------------------------\n\n");
+    printf("       id는 학번을 입력하세요. \n");
+    printf("       개발자모드 : 1234 / 가입 : 0 \n");
+    printf("            ID : ");
+    scanf_s("%d", &userid);
+    printf("\n\n-------------------------------\n");
+
+    switch (userid)
+    {
+        case 1234:
+            wallet = 999999999;
+            break;
+        default:
+            break;
+    }
+    return 0;
 }
