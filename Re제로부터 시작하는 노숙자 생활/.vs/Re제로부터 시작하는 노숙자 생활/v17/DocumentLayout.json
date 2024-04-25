@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\Gamedata\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C10483D0-8C1F-4B20-BFDE-34869CAEDDE3}|Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C.vcxproj|D:\\Gamedata\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C10483D0-8C1F-4B20-BFDE-34869CAEDDE3}|Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C.vcxproj|solutionrelative:Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{CAEA2F61-F207-4F05-80F9-88AD5C05F02A}|Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C.vcxproj|D:\\Gamedata\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\game.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CAEA2F61-F207-4F05-80F9-88AD5C05F02A}|Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C.vcxproj|solutionrelative:Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\game.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Gamedata\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,15 +23,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "game.c",
+              "DocumentMoniker": "D:\\Gamedata\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\game.c",
+              "RelativeDocumentMoniker": "Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\game.c",
+              "ToolTip": "D:\\Gamedata\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\game.c",
+              "RelativeToolTip": "Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\game.c",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-04-25T14:12:51.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "main.c",
               "DocumentMoniker": "D:\\Gamedata\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\main.c",
               "RelativeDocumentMoniker": "Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\main.c",
               "ToolTip": "D:\\Gamedata\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\main.c",
               "RelativeToolTip": "Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\main.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAG0AAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-04-03T11:07:36.924Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-25T14:12:41.547Z"
             }
           ]
         }
