@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include <conio.h>
 
@@ -17,12 +18,38 @@ int sell = 0;                           // 집 팔때
 int wallet = 50000;                     // 현재 가지고 있는 금액
 char* house[] = { "서울역 노숙","반지하원룸","벌레 나오는 원룸", "좁은 원룸","적당한 원룸","넓은 원룸","벌레 가끔 나오는 투룸","층간소음 지리는 투룸","변기 잘 막히는 투룸","적당한 투룸","쩌는 투룸","걍 아파트","그냥 좋은 아파트","멋있는 아파트","호화로운 아파트","마당있는 단독주택","시그니엘" };
     
+/*
+void PostUser()
+{
+    char playerID[] = "player123";
+    char logintime[] = "2024-04-27T09:30:00.000Z";
+    int wallet = 1000;
+    int nowlevel = 5;
+    int futurelevel = 6;
+    int success = 1; // 성공여부는 true일 경우 1, false일 경우 0
+    char itemName[] = "소파";
+    int homemoney = 500000;
+    int sell = 200000;
+    char nowtime[] = "2024-04-27T09:30:00.000Z";
+
+    // JSON 데이터 생성
+    char postData[1024];
+    sprintf(postData, "{\"플레이어ID\":\"%s\",\"접속일시\":\"%s\",\"소지금\":%d,\"현재단계\":%d,\"도전단계\":%d,\"성공여부\":%d,\"구매가구\":\"%s\",\"집값\":%d,\"판매금\":%d,\"시간\":\"%s\"}",
+        playerID, logintime, wallet, nowlevel, futurelevel, success, itemName, homemoney, sell, nowtime);
+
+    // CURL을 사용하여 POST 요청 보내기
+    char command[2048];
+    sprintf(command, "curl -d \"%s\" https://script.google.com/macros/s/AKfycbwzGAs5zAVRtnLZ8AFJfRANQ7kPqQjfZz79tRSZn_-dzOLYbhUPSXr-GxrMGVwaLCdd-g/exec", postData);
+    system(command);
+}
+*/
 
 int main(void)
 {
     srand((int)time(NULL));                 // 랜덤 시드값 설정
 
-    while (Isgame)
+    //login();
+    while (Isgame==1)
     {
         // 화면 정리
         system("@cls||clear");
@@ -47,7 +74,7 @@ int main(void)
             case 16: Num = 55; buy = 36000; sell = 90000; break;
             default: Num = 100; buy = 2000; sell = 0;     break;
         }
-        login();
+        
          maingame();
          // 진행상황 확인이 용이 하도록 대기
          printf("\n계속하려면 아무 키나 누르십시오.\n");
@@ -56,7 +83,7 @@ int main(void)
     return 0;
 }
 
-int Store()
+void Store()
 {
    system("@cls||clear");
     printf("     가진 돈 : %d 원\n", wallet);
@@ -106,7 +133,8 @@ int Store()
 }
 
 int maingame()
-{
+{       
+        //PostUser();
         system("@cls||clear");
         printf("     가진 돈 : %d 원\n", wallet);
         printf("     현재 집 : %s\n", house[level]);
@@ -168,6 +196,7 @@ int maingame()
         }
 }
 
+/*
 int login()
 {
     system("@cls||clear");
@@ -190,7 +219,8 @@ int login()
             level = input;
             break;
         default:
-            break;
+         break;
     }
     return 0;
 }
+*/
