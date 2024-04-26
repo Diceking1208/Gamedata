@@ -129,9 +129,9 @@ int maingame()
                 // 성공화면 출력
                 wallet -= buy;
                 printf("\n\n지갑 : %d 원\n\n", wallet);
-                printf("************* SUCCESS *************\n");
+                printf("\033[0;32m************* SUCCESS *************\n\033[0m");
                 printf("  %s  ->  %s    \n", house[level], house[level + 1]);
-                printf("************* SUCCESS *************\n");
+                printf("\033[0;32m************* SUCCESS *************\n\033[0m");
                 level++;
             }
             else
@@ -139,8 +139,8 @@ int maingame()
                 // 실패화면 출력
                 wallet -= buy;
                 printf("\n\n지갑 : %d 원\n", wallet);
-                printf("         아 망했네...\n");
-                printf("집 '%s' 을 잃었습니다.\n", house[level]);
+                printf("         \033[0;31m아 망했네...\n\033[0m");
+                printf("집 \033[0;31m'%s' \033[0m을 잃었습니다.\n", house[level]);
                 level = 0;
             }
             break;
