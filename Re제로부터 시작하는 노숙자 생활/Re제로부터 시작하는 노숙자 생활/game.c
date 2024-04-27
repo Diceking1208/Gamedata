@@ -53,7 +53,11 @@ void PostUser()
     struct tm* local_time = localtime(&now);
 
     sprintf_s(command, sizeof(command), "curl -d \"{\\\"플레이어ID\\\":\\\"%d\\\",\\\"접속일시\\\":\\\"%d월 %d일\\\",\\\"소지금\\\":%d,\\\"현재단계\\\":%d,\\\"도전단계\\\":%d,\\\"선택\\\":\\\"%d\\\",\\\"성공여부\\\":%s,\\\"구매가구\\\":\\\"%d\\\",\\\"집값\\\":%d,\\\"집판매\\\":%s,\\\"충전금액\\\":%d,\\\"시간\\\":\\\"%d:%d:%d\\\"}\" https://script.google.com/macros/s/AKfycbx_aUWeYUHTTq_5b4nUyTOp6w_QcCObZCMlcKs_74iQVAs-t5iTQ7F4Un0AReH_qmP8Sg/exec",
+<<<<<<< HEAD
     userid, local_time->tm_mon + 1, local_time->tm_mday + 1, wallet, nowlevel, futurelevel, choice, tnf ? "true" : "false", furnitureNum, sell + buyMoney, sellHome ? "true" : "false", charge, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
+=======
+        userid, local_time->tm_mon + 1, local_time->tm_mday + 1, wallet, nowlevel, futurelevel, choice, tnf ? "true" : "false", furnitureNum, sell + buyMoney, sellHome ? "true" : "false", charge, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
+>>>>>>> Sobni
     system(command);
 }
 
@@ -68,12 +72,18 @@ int main(void)
         system("@cls||clear");
         switch (level)
         {
+<<<<<<< HEAD
             case 0:  Num = 100; buy = 2000;  sell = 0;  break;
             case 1:  Num = 95; buy = 4000;
+=======
+        case 0:  Num = 100; buy = 2000;  sell = 0;  break;
+        case 1:  Num = 95; buy = 4000;
+>>>>>>> Sobni
             if (furnitureBuy) {
                 switch (furnitureBuy)
                 {
                 case 1:
+<<<<<<< HEAD
                     sell += (5200 * 2) + housePrice[level] * 2; // 꽃무늬 벽지의 가격은 5200 원
                     break;
                 case 2:
@@ -84,12 +94,25 @@ int main(void)
                     break;
                 case 4:
                     sell += (34000 * 2) + housePrice[level] * 2; // 알록달록옷장의 가격은 34000 원
+=======
+                    sell = (5200 * 2) + housePrice[level] ; // 꽃무늬 벽지의 가격은 5200 원
+                    break;
+                case 2:
+                    sell = (9700 * 2) + housePrice[level] ; // 노란색 바닥의 가격은 9700 원
+                    break;
+                case 3:
+                    sell = (128000 * 2) + housePrice[level] ; // 황금변기의 가격은 128000 원
+                    break;
+                case 4:
+                    sell = (34000 * 2) + housePrice[level] ; // 알록달록옷장의 가격은 34000 원
+>>>>>>> Sobni
                     break;
                 default:
                     break;
                 }
             }
             else sell += 10000; break;// 이거 swtich 함수 따로 만들어서 넣었는데 계속 오류나서 일일히 넣음 ㅜㅜ
+<<<<<<< HEAD
         case 2:  Num = 93; buy = 6000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -104,12 +127,29 @@ int main(void)
                 break;
             case 4:
                 sell += (34000 * 2) + housePrice[level] * 2; // 알록달록옷장의 가격은 34000 원
+=======
+        case 2:  Num = 90; buy = 6000; if (furnitureBuy) {
+            switch (furnitureBuy)
+            {
+            case 1:
+                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
+                break;
+            case 2:
+                sell = (9700 * 2) + housePrice[level] ; // 노란색 바닥의 가격은 9700 원
+                break;
+            case 3:
+                sell = (128000 * 2) + housePrice[level] ; // 황금변기의 가격은 128000 원
+                break;
+            case 4:
+                sell = (34000 * 2) + housePrice[level] ; // 알록달록옷장의 가격은 34000 원
+>>>>>>> Sobni
                 break;
             default:
                 break;
             }
         }
               else  sell += 20000; break;
+<<<<<<< HEAD
         case 3:  Num = 90; buy = 8000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -124,11 +164,28 @@ int main(void)
                 break;
             case 4:
                 sell += (34000 * 2) + housePrice[level] * 2; // 알록달록옷장의 가격은 34000 원
+=======
+        case 3:  Num = 85; buy = 8000; if (furnitureBuy) {
+            switch (furnitureBuy)
+            {
+            case 1:
+                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
+                break;
+            case 2:
+                sell = (9700 * 2) + housePrice[level] ; // 노란색 바닥의 가격은 9700 원
+                break;
+            case 3:
+                sell = (128000 * 2) + housePrice[level] ; // 황금변기의 가격은 128000 원
+                break;
+            case 4:
+                sell = (34000 * 2) + housePrice[level] ; // 알록달록옷장의 가격은 34000 원
+>>>>>>> Sobni
                 break;
             default:
                 break;
             }
         }
+<<<<<<< HEAD
               else  sell += 25000; break;
         case 4:  Num = 87; buy = 10000; if (furnitureBuy) {
             switch (furnitureBuy)
@@ -144,11 +201,29 @@ int main(void)
                 break;
             case 4:
                 sell = (34000 * 2) + housePrice[level] * 2; // 알록달록옷장의 가격은 34000 원
+=======
+              else  sell = 25000; break;
+        case 4:  Num = 80; buy = 10000; if (furnitureBuy) {
+            switch (furnitureBuy)
+            {
+            case 1:
+                sell = (5200 * 2) + housePrice[level] ; // 꽃무늬 벽지의 가격은 5200 원
+                break;
+            case 2:
+                sell = (9700 * 2) + housePrice[level] ; // 노란색 바닥의 가격은 9700 원
+                break;
+            case 3:
+                sell = (128000 * 2) + housePrice[level] ; // 황금변기의 가격은 128000 원
+                break;
+            case 4:
+                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
+>>>>>>> Sobni
                 break;
             default:
                 break;
             }
         }
+<<<<<<< HEAD
               else sell += 30000; break;
         case 5:  Num = 83; buy = 12000; if (furnitureBuy) {
             switch (furnitureBuy)
@@ -164,12 +239,30 @@ int main(void)
                 break;
             case 4:
                 sell = (34000 * 2) + housePrice[level] * 2; // 알록달록옷장의 가격은 34000 원
+=======
+              else sell = 30000; break;
+        case 5:  Num = 75; buy = 12000; if (furnitureBuy) {
+            switch (furnitureBuy)
+            {
+            case 1:
+                sell = (5200 * 2) + housePrice[level] ; // 꽃무늬 벽지의 가격은 5200 원
+                break;
+            case 2:
+                sell = (9700 * 2) + housePrice[level] ; // 노란색 바닥의 가격은 9700 원
+                break;
+            case 3:
+                sell = (128000 * 2) + housePrice[level] ; // 황금변기의 가격은 128000 원
+                break;
+            case 4:
+                sell = (34000 * 2) + housePrice[level] ; // 알록달록옷장의 가격은 34000 원
+>>>>>>> Sobni
                 break;
             default:
                 break;
             }
         }
               else sell += 35000; break;
+<<<<<<< HEAD
         case 6:  Num = 80; buy = 14000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -184,12 +277,29 @@ int main(void)
                 break;
             case 4:
                 sell = (34000 * 2) + housePrice[level] * 2; // 알록달록옷장의 가격은 34000 원
+=======
+        case 6:  Num = 70; buy = 14000; if (furnitureBuy) {
+            switch (furnitureBuy)
+            {
+            case 1:
+                sell = (5200 * 2) + housePrice[level] ; // 꽃무늬 벽지의 가격은 5200 원
+                break;
+            case 2:
+                sell = (9700 * 2) + housePrice[level] ; // 노란색 바닥의 가격은 9700 원
+                break;
+            case 3:
+                sell = (128000 * 2) + housePrice[level] ; // 황금변기의 가격은 128000 원
+                break;
+            case 4:
+                sell = (34000 * 2) + housePrice[level] ; // 알록달록옷장의 가격은 34000 원
+>>>>>>> Sobni
                 break;
             default:
                 break;
             }
         }
               else sell += 40000; break;
+<<<<<<< HEAD
         case 7:  Num = 75; buy = 16000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -204,12 +314,29 @@ int main(void)
                 break;
             case 4:
                 sell = (34000 * 2) + housePrice[level] * 2; // 알록달록옷장의 가격은 34000 원
+=======
+        case 7:  Num = 65; buy = 16000; if (furnitureBuy) {
+            switch (furnitureBuy)
+            {
+            case 1:
+                sell = (5200 * 2) + housePrice[level] ; // 꽃무늬 벽지의 가격은 5200 원
+                break;
+            case 2:
+                sell = (9700 * 2) + housePrice[level] ; // 노란색 바닥의 가격은 9700 원
+                break;
+            case 3:
+                sell = (128000 * 2) + housePrice[level] ; // 황금변기의 가격은 128000 원
+                break;
+            case 4:
+                sell = (34000 * 2) + housePrice[level] ; // 알록달록옷장의 가격은 34000 원
+>>>>>>> Sobni
                 break;
             default:
                 break;
             }
         }
               else sell += 45000; break;
+<<<<<<< HEAD
         case 8:  Num = 73; buy = 18000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -224,12 +351,29 @@ int main(void)
                 break;
             case 4:
                 sell = (34000 * 2) + housePrice[level] * 2; // 알록달록옷장의 가격은 34000 원
+=======
+        case 8:  Num = 60; buy = 18000; if (furnitureBuy) {
+            switch (furnitureBuy)
+            {
+            case 1:
+                sell = (5200 * 2) + housePrice[level] ; // 꽃무늬 벽지의 가격은 5200 원
+                break;
+            case 2:
+                sell = (9700 * 2) + housePrice[level] ; // 노란색 바닥의 가격은 9700 원
+                break;
+            case 3:
+                sell = (128000 * 2) + housePrice[level] ; // 황금변기의 가격은 128000 원
+                break;
+            case 4:
+                sell = (34000 * 2) + housePrice[level] ; // 알록달록옷장의 가격은 34000 원
+>>>>>>> Sobni
                 break;
             default:
                 break;
             }
         }
               else sell += 50000; break;
+<<<<<<< HEAD
         case 9:  Num = 70; buy = 20000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -244,12 +388,29 @@ int main(void)
                 break;
             case 4:
                 sell = (34000 * 2) + housePrice[level] * 2; // 알록달록옷장의 가격은 34000 원
+=======
+        case 9:  Num = 55; buy = 20000; if (furnitureBuy) {
+            switch (furnitureBuy)
+            {
+            case 1:
+                sell = (5200 * 2) + housePrice[level] ; // 꽃무늬 벽지의 가격은 5200 원
+                break;
+            case 2:
+                sell = (9700 * 2) + housePrice[level] ; // 노란색 바닥의 가격은 9700 원
+                break;
+            case 3:
+                sell = (128000 * 2) + housePrice[level] ; // 황금변기의 가격은 128000 원
+                break;
+            case 4:
+                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
+>>>>>>> Sobni
                 break;
             default:
                 break;
             }
         }
               else sell += 55000; break;
+<<<<<<< HEAD
         case 10: Num = 68; buy = 22000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -264,12 +425,29 @@ int main(void)
                 break;
             case 4:
                 sell = (34000 * 2) + housePrice[level] * 2; // 알록달록옷장의 가격은 34000 원
+=======
+        case 10: Num = 50; buy = 22000; if (furnitureBuy) {
+            switch (furnitureBuy)
+            {
+            case 1:
+                sell = (5200 * 2) + housePrice[level] ; // 꽃무늬 벽지의 가격은 5200 원
+                break;
+            case 2:
+                sell = (9700 * 2) + housePrice[level] ; // 노란색 바닥의 가격은 9700 원
+                break;
+            case 3:
+                sell = (128000 * 2) + housePrice[level] ; // 황금변기의 가격은 128000 원
+                break;
+            case 4:
+                sell = (34000 * 2) + housePrice[level] ; // 알록달록옷장의 가격은 34000 원
+>>>>>>> Sobni
                 break;
             default:
                 break;
             }
         }
                else sell += 60000; break;
+<<<<<<< HEAD
         case 11: Num = 65; buy = 24000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -284,12 +462,29 @@ int main(void)
                 break;
             case 4:
                 sell = (34000 * 2) + housePrice[level] * 2; // 알록달록옷장의 가격은 34000 원
+=======
+        case 11: Num = 45; buy = 24000; if (furnitureBuy) {
+            switch (furnitureBuy)
+            {
+            case 1:
+                sell = (5200 * 2) + housePrice[level] ; // 꽃무늬 벽지의 가격은 5200 원
+                break;
+            case 2:
+                sell = (9700 * 2) + housePrice[level] ; // 노란색 바닥의 가격은 9700 원
+                break;
+            case 3:
+                sell = (128000 * 2) + housePrice[level] ; // 황금변기의 가격은 128000 원
+                break;
+            case 4:
+                sell = (34000 * 2) + housePrice[level] ; // 알록달록옷장의 가격은 34000 원
+>>>>>>> Sobni
                 break;
             default:
                 break;
             }
         }
                else sell += 65000; break;
+<<<<<<< HEAD
         case 12: Num = 60; buy = 26000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -304,12 +499,29 @@ int main(void)
                 break;
             case 4:
                 sell = (34000 * 2) + housePrice[level] * 2; // 알록달록옷장의 가격은 34000 원
+=======
+        case 12: Num = 40; buy = 26000; if (furnitureBuy) {
+            switch (furnitureBuy)
+            {
+            case 1:
+                sell = (5200 * 2) + housePrice[level] ; // 꽃무늬 벽지의 가격은 5200 원
+                break;
+            case 2:
+                sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
+                break;
+            case 3:
+                sell = (128000 * 2) + housePrice[level] ; // 황금변기의 가격은 128000 원
+                break;
+            case 4:
+                sell = (34000 * 2) + housePrice[level] ; // 알록달록옷장의 가격은 34000 원
+>>>>>>> Sobni
                 break;
             default:
                 break;
             }
         }
                else sell += 70000; break;
+<<<<<<< HEAD
         case 13: Num = 55; buy = 28000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -324,12 +536,29 @@ int main(void)
                 break;
             case 4:
                 sell = (34000 * 2) + housePrice[level] * 2; // 알록달록옷장의 가격은 34000 원
+=======
+        case 13: Num = 35; buy = 28000; if (furnitureBuy) {
+            switch (furnitureBuy)
+            {
+            case 1:
+                sell = (5200 * 2) + housePrice[level] ; // 꽃무늬 벽지의 가격은 5200 원
+                break;
+            case 2:
+                sell = (9700 * 2) + housePrice[level] ; // 노란색 바닥의 가격은 9700 원
+                break;
+            case 3:
+                sell = (128000 * 2) + housePrice[level] ; // 황금변기의 가격은 128000 원
+                break;
+            case 4:
+                sell = (34000 * 2) + housePrice[level] ; // 알록달록옷장의 가격은 34000 원
+>>>>>>> Sobni
                 break;
             default:
                 break;
             }
         }
                else sell += 75000; break;
+<<<<<<< HEAD
         case 14: Num = 50; buy = 30000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -344,12 +573,29 @@ int main(void)
                 break;
             case 4:
                 sell = (34000 * 2) + housePrice[level] * 2; // 알록달록옷장의 가격은 34000 원
+=======
+        case 14: Num = 30; buy = 30000; if (furnitureBuy) {
+            switch (furnitureBuy)
+            {
+            case 1:
+                sell = (5200 * 2) + housePrice[level] ; // 꽃무늬 벽지의 가격은 5200 원
+                break;
+            case 2:
+                sell = (9700 * 2) + housePrice[level] ; // 노란색 바닥의 가격은 9700 원
+                break;
+            case 3:
+                sell = (128000 * 2) + housePrice[level] ; // 황금변기의 가격은 128000 원
+                break;
+            case 4:
+                sell = (34000 * 2) + housePrice[level] ; // 알록달록옷장의 가격은 34000 원
+>>>>>>> Sobni
                 break;
             default:
                 break;
             }
         }
                else sell += 80000; break;
+<<<<<<< HEAD
         case 15: Num = 45; buy = 33000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -364,12 +610,29 @@ int main(void)
                 break;
             case 4:
                 sell = (34000 * 2) + housePrice[level] * 2; // 알록달록옷장의 가격은 34000 원
+=======
+        case 15: Num = 25; buy = 33000; if (furnitureBuy) {
+            switch (furnitureBuy)
+            {
+            case 1:
+                sell = (5200 * 2) + housePrice[level] ; // 꽃무늬 벽지의 가격은 5200 원
+                break;
+            case 2:
+                sell = (9700 * 2) + housePrice[level] ; // 노란색 바닥의 가격은 9700 원
+                break;
+            case 3:
+                sell = (128000 * 2) + housePrice[level] ; // 황금변기의 가격은 128000 원
+                break;
+            case 4:
+                sell = (34000 * 2) + housePrice[level] ; // 알록달록옷장의 가격은 34000 원
+>>>>>>> Sobni
                 break;
             default:
                 break;
             }
         }
                else sell += 85000; break;
+<<<<<<< HEAD
         case 16: Num = 40; buy = 36000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -384,6 +647,22 @@ int main(void)
                 break;
             case 4:
                 sell = (34000 * 2) + housePrice[level] * 2; // 알록달록옷장의 가격은 34000 원
+=======
+        case 16: Num = 20; buy = 36000; if (furnitureBuy) {
+            switch (furnitureBuy)
+            {
+            case 1:
+                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
+                break;
+            case 2:
+                sell = (9700 * 2) + housePrice[level] ; // 노란색 바닥의 가격은 9700 원
+                break;
+            case 3:
+                sell = (128000 * 2) + housePrice[level] ; // 황금변기의 가격은 128000 원
+                break;
+            case 4:
+                sell = (34000 * 2) + housePrice[level] ; // 알록달록옷장의 가격은 34000 원
+>>>>>>> Sobni
                 break;
             default:
                 break;
@@ -562,32 +841,57 @@ void Cash()
         printf("     가진 돈 : %d 원\n", wallet);
         break;
     case 2:
+<<<<<<< HEAD
         wallet += 7800;
         charge = 9900;
+=======
+        wallet += 8000;
+        charge = 7800;
+>>>>>>> Sobni
         printf("구매가 완료 되었습니다.");
         printf("     가진 돈 : %d 원\n", wallet);
         break;
     case 3:
+<<<<<<< HEAD
         wallet += 12200;
         charge = 14000;
+=======
+        wallet += 12800;
+        charge = 12200;
+>>>>>>> Sobni
         printf("구매가 완료 되었습니다.");
         printf("     가진 돈 : %d 원\n", wallet);
         break;
     case 4:
+<<<<<<< HEAD
         wallet += 20900;
         charge = 35000;
+=======
+        wallet += 22500;
+        charge = 20900;
+>>>>>>> Sobni
         printf("구매가 완료 되었습니다.");
         printf("     가진 돈 : %d 원\n", wallet);
         break;
     case 5:
+<<<<<<< HEAD
         wallet += 35200;
         charge = 65000;
+=======
+        wallet += 40000;
+        charge = 35200;
+>>>>>>> Sobni
         printf("구매가 완료 되었습니다.");
         printf("     가진 돈 : %d 원\n", wallet);
         break;
     case 6:
+<<<<<<< HEAD
         wallet += 40000;
         charge = 99000;
+=======
+        wallet += 50000;
+        charge = 40000;
+>>>>>>> Sobni
         printf("구매가 완료 되었습니다.");
         printf("     가진 돈 : %d 원\n", wallet);
         break;
@@ -609,6 +913,10 @@ int maingame()
     system("@cls||clear");
     if (wallet <= 0)
     {
+<<<<<<< HEAD
+=======
+        wallet = 0;
+>>>>>>> Sobni
         printf("\n\033[0;32m 돈이 없습니다 충전하세요 \n\033[0m\n");
     }
     printf("     가진 돈 : %d원\n", wallet);
@@ -626,7 +934,11 @@ int maingame()
     switch (isTry)
     {
     case 1:        // 강화에 도전 할 경우
+<<<<<<< HEAD
          choice = 1;
+=======
+        choice = 1;
+>>>>>>> Sobni
         if (wallet <= 0)
         {
             printf("\n\033[0;32m 돈이 없습니다 충전하세요 \n\033[0m\n");
@@ -702,12 +1014,20 @@ int maingame()
 
     case 4:
         choice = 4;
+<<<<<<< HEAD
         if(wallet <=0)
+=======
+        if (wallet <= 0)
+>>>>>>> Sobni
         {
             printf("\n\033[0;32m 돈이 없습니다 충전하세요 \n\033[0m\n");
             break;
         }
+<<<<<<< HEAD
         else if(wallet >= 1)
+=======
+        else if (wallet >= 1)
+>>>>>>> Sobni
         {
             Store();
         }
@@ -728,6 +1048,7 @@ int login()
 
     switch (userid)
     {
+<<<<<<< HEAD
         int input=0;
         case 99999:
             wallet = 999999999;
@@ -738,6 +1059,18 @@ int login()
             break;
         default: level = 0;
          break;
+=======
+        int input = 0;
+    case 99999:
+        wallet = 999999999;
+        printf(" 금액은 999,999,999원으로 시작됩니다. \n");
+        printf(" 시작할 레벨을 입력하세요 :  ");
+        scanf_s("%d", &input);
+        level = input;
+        break;
+    default: level = 0;
+        break;
+>>>>>>> Sobni
     }
     return 0;
 }
