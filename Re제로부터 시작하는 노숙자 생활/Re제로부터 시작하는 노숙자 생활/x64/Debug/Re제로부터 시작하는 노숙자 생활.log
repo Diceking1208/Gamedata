@@ -1,5 +1,19 @@
+<<<<<<< HEAD
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: 중간 디렉터리(x64\Debug\)에 다른 프로젝트(Re제로부터 시작하는 노숙자 생활.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
   game.c
 D:\Gamedata\Re제로부터 시작하는 노숙자 생활\Re제로부터 시작하는 노숙자 생활\game.c(349,9): warning C4013: 'maingame'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
 D:\Gamedata\Re제로부터 시작하는 노숙자 생활\Re제로부터 시작하는 노숙자 생활\game.c(530,1): warning C4715: 'maingame': 모든 제어 경로에서 값을 반환하지는 않습니다.
   Re제로부터 시작하는 노숙자 생활.vcxproj -> D:\Gamedata\Re제로부터 시작하는 노숙자 생활\x64\Debug\Re제로부터 시작하는 노숙자 생활.exe
+=======
+﻿  game.c
+D:\GameDATAmain\Re제로부터 시작하는 노숙자 생활\Re제로부터 시작하는 노숙자 생활\game.c(62,5): warning C4013: 'login'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+D:\GameDATAmain\Re제로부터 시작하는 노숙자 생활\Re제로부터 시작하는 노숙자 생활\game.c(89,10): warning C4013: 'maingame'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+D:\GameDATAmain\Re제로부터 시작하는 노숙자 생활\Re제로부터 시작하는 노숙자 생활\game.c(91,10): warning C4013: '_getch'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+D:\GameDATAmain\Re제로부터 시작하는 노숙자 생활\Re제로부터 시작하는 노숙자 생활\game.c(144,13): warning C4098: 'Store': 'void' 함수에서 값을 반환하고 있습니다.
+D:\GameDATAmain\Re제로부터 시작하는 노숙자 생활\Re제로부터 시작하는 노숙자 생활\game.c(232,41): warning C4474: 'printf' : 서식 문자열에 전달된 인수가 너무 많습니다.
+  D:\GameDATAmain\Re제로부터 시작하는 노숙자 생활\Re제로부터 시작하는 노숙자 생활\game.c(232,41):
+  자리 표시자 및 해당 매개 변수에는 variadic 인수가 0개 필요하지만 1개가 제공되었습니다.
+  
+D:\GameDATAmain\Re제로부터 시작하는 노숙자 생활\Re제로부터 시작하는 노숙자 생활\game.c(226,1): warning C4715: 'maingame': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  Re제로부터 시작하는 노숙자 생활.vcxproj -> D:\GameDATAmain\Re제로부터 시작하는 노숙자 생활\x64\Debug\Re제로부터 시작하는 노숙자 생활.exe
+>>>>>>> 6bf16cd0668bbe198f530a83108d998dae739f52
