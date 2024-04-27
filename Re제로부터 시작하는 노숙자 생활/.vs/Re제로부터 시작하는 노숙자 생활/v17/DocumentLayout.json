@@ -1,16 +1,9 @@
 {
   "Version": 1,
-<<<<<<< HEAD
   "WorkspaceRootPath": "D:\\Gamedata\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\",
   "Documents": [
     {
       "AbsoluteMoniker": "D:0:0:{CAEA2F61-F207-4F05-80F9-88AD5C05F02A}|Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C.vcxproj|D:\\Gamedata\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\game.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-=======
-  "WorkspaceRootPath": "D:\\GAMEDATA\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{CAEA2F61-F207-4F05-80F9-88AD5C05F02A}|Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C.vcxproj|D:\\GAMEDATA\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\game.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
->>>>>>> ce736913c6c021b816953a837d82823a848a13e5
       "RelativeMoniker": "D:0:0:{CAEA2F61-F207-4F05-80F9-88AD5C05F02A}|Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C.vcxproj|solutionrelative:Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\game.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -27,19 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "game.c",
-<<<<<<< HEAD
               "DocumentMoniker": "D:\\Gamedata\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\game.c",
-=======
-              "DocumentMoniker": "D:\\GAMEDATA\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\game.c",
->>>>>>> ce736913c6c021b816953a837d82823a848a13e5
               "RelativeDocumentMoniker": "Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\game.c",
-              "ToolTip": "D:\\GAMEDATA\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\game.c",
-              "RelativeToolTip": "Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\game.c",
-<<<<<<< HEAD
-              "ViewState": "AQIAAL4BAAAAAAAAAAAQwMgBAAAyAAAA",
-=======
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
->>>>>>> ce736913c6c021b816953a837d82823a848a13e5
+              "ToolTip": "D:\\Gamedata\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\game.c*",
+              "RelativeToolTip": "Re\uC81C\uB85C\uBD80\uD130 \uC2DC\uC791\uD558\uB294 \uB178\uC219\uC790 \uC0DD\uD65C\\game.c*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-04-25T14:12:51.164Z",
               "EditorCaption": ""
