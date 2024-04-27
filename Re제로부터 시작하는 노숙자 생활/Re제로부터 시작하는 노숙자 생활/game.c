@@ -25,6 +25,8 @@ int futurelevel = 0;
 char datatime[200];
 char datadate[200];
 struct tm* t;
+int choice = 0; //선택지 저장
+
 
 //데이터 로그에 들어가는 변수
 /*
@@ -45,8 +47,8 @@ void PostUser()
     time_t now = time(NULL);
     struct tm* local_time = localtime(&now);
 
-    sprintf_s(command, sizeof(command), "curl -d \"{\\\"플레이어ID\\\":\\\"%d\\\",\\\"접속일시\\\":\\\"%d월 %d일\\\",\\\"소지금\\\":%d,\\\"현재단계\\\":%d,\\\"도전단계\\\":%d,\\\"성공여부\\\":%s,\\\"구매가구\\\":\\\"%d\\\",\\\"집값\\\":%d,\\\"집판매\\\":%s,\\\"시간\\\":\\\"%d:%d:%d\\\"}\" https://script.google.com/macros/s/AKfycbwQWUR_J5-boWCHJEFM48HQylhTUNfXdDgNFMs_mMaIIn3aodDP-nnAyJuQPXX5bNEI8g/exec",
-        userid, local_time->tm_mon + 1, local_time->tm_mday + 1, wallet, nowlevel , futurelevel, tnf ? "true" : "false", furnitureNum, sell + buyMoney, sellHome ? "true" : "false", local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
+    sprintf_s(command, sizeof(command), "curl -d \"{\\\"플레이어ID\\\":\\\"%d\\\",\\\"접속일시\\\":\\\"%d월 %d일\\\",\\\"소지금\\\":%d,\\\"현재단계\\\":%d,\\\"도전단계\\\":%d,\\\"선택\\\":\\\"%d\\\",\\\"성공여부\\\":%s,\\\"구매가구\\\":\\\"%d\\\",\\\"집값\\\":%d,\\\"집판매\\\":%s,\\\"시간\\\":\\\"%d:%d:%d\\\"}\" https://script.google.com/macros/s/AKfycby-ZPjp6MIQKeZ6Ao46uFZKZAOU9NqnvuWkw6yrnvbp2mQqy_42skd0nwDC2Mm0MDOBgg/exec",
+        userid, local_time->tm_mon + 1, local_time->tm_mday + 1, wallet, nowlevel , futurelevel, choice, tnf ? "true" : "false", furnitureNum, sell + buyMoney, sellHome ? "true" : "false", local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
 
     system(command);
 }
@@ -56,7 +58,6 @@ int main(void)
     time_t timer = time(NULL);
     t = localtime(&timer);
     srand((unsigned int)time(NULL));
-
 
     login();
     while (Isgame==1)
@@ -164,6 +165,7 @@ int maingame()
         {
             case 1:        // 강화에 도전 할 경우
                 randNum = rand() % 100 + 1;
+                choice = 1;
 
             // 추출한 랜덤 값이 성공확률 보다 작으면 성공
             if (randNum < Num) {
@@ -196,6 +198,7 @@ int maingame()
             break;
 
             case 2:
+                choice = 2;
                 // 포기를 할 경우 프로그램 종료
                 printf("\n         어 나가~\n");
                 Isgame = 0;
@@ -203,6 +206,7 @@ int maingame()
                 break;
 
             case 3:
+                choice = 3;
                 sellHome = true;
                 nowlevel = level + 1;      //해당 단계 레벨 저장
                 futurelevel = level + 2;
@@ -214,6 +218,7 @@ int maingame()
                 break;
 
             case 4:
+                choice = 4;
                 Store();
                 break;
         }
