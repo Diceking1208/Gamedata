@@ -62,11 +62,16 @@ char datatime[200];
 char datadate[200];
 struct tm* t;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 int choice = 0; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 >>>>>>> bdf2804e626aa0e4cc944733db9f73a92859c1ef
+=======
+int choice = 0; //¼±ÅÃÁö ÀúÀå
+
+>>>>>>> parent of 5994149 (Revert "ê²Œì„ë°ì´í„°ëª… ìˆ˜ì •, ì„ íƒì§€ ì¶”ê°€ ë“±")
 
 
 void PostUser()
@@ -76,12 +81,17 @@ void PostUser()
     struct tm* local_time = localtime(&now);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     sprintf_s(command, sizeof(command), "curl -d \"{\\\"ÇÃ·¹ÀÌ¾îID\\\":\\\"%d\\\",\\\"Á¢¼ÓÀÏ½Ã\\\":\\\"%d¿ù %dÀÏ\\\",\\\"¼ÒÁö±İ\\\":%d,\\\"ÇöÀç´Ü°è\\\":%d,\\\"µµÀü´Ü°è\\\":%d,\\\"¼º°ø¿©ºÎ\\\":%s,\\\"±¸¸Å°¡±¸\\\":\\\"%d\\\",\\\"Áı°ª\\\":%d,\\\"ÁıÆÇ¸Å\\\":%s,\\\"½Ã°£\\\":\\\"%d:%d:%d\\\"}\" https://script.google.com/macros/s/AKfycbwQWUR_J5-boWCHJEFM48HQylhTUNfXdDgNFMs_mMaIIn3aodDP-nnAyJuQPXX5bNEI8g/exec",
         userid, local_time->tm_mon + 1, local_time->tm_mday + 1, wallet, nowlevel , futurelevel, tnf ? "true" : "false", furnitureNum, sell + buyMoney, sellHome ? "true" : "false", local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
 =======
     sprintf_s(command, sizeof(command), "curl -d \"{\\\"ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ID\\\":\\\"%d\\\",\\\"ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½\\\":\\\"%dï¿½ï¿½ %dï¿½ï¿½\\\",\\\"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\\\":%d,\\\"ï¿½ï¿½ï¿½ï¿½Ü°ï¿½\\\":%d,\\\"ï¿½ï¿½ï¿½ï¿½ï¿½Ü°ï¿½\\\":%d,\\\"ï¿½ï¿½ï¿½ï¿½\\\":\\\"%d\\\",\\\"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\\\":%s,\\\"ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½\\\":\\\"%d\\\",\\\"ï¿½ï¿½ï¿½ï¿½\\\":%d,\\\"ï¿½ï¿½ï¿½Ç¸ï¿½\\\":%s,\\\"ï¿½Ã°ï¿½\\\":\\\"%d:%d:%d\\\"}\" https://script.google.com/macros/s/AKfycby-ZPjp6MIQKeZ6Ao46uFZKZAOU9NqnvuWkw6yrnvbp2mQqy_42skd0nwDC2Mm0MDOBgg/exec",
         userid, local_time->tm_mon + 1, local_time->tm_mday + 1, wallet, nowlevel , futurelevel, choice, tnf ? "true" : "false", furnitureNum, sell + buyMoney, sellHome ? "true" : "false", local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
 >>>>>>> bdf2804e626aa0e4cc944733db9f73a92859c1ef
+=======
+    sprintf_s(command, sizeof(command), "curl -d \"{\\\"ÇÃ·¹ÀÌ¾îID\\\":\\\"%d\\\",\\\"Á¢¼ÓÀÏ½Ã\\\":\\\"%d¿ù %dÀÏ\\\",\\\"¼ÒÁö±İ\\\":%d,\\\"ÇöÀç´Ü°è\\\":%d,\\\"µµÀü´Ü°è\\\":%d,\\\"¼±ÅÃ\\\":\\\"%d\\\",\\\"¼º°ø¿©ºÎ\\\":%s,\\\"±¸¸Å°¡±¸\\\":\\\"%d\\\",\\\"Áı°ª\\\":%d,\\\"ÁıÆÇ¸Å\\\":%s,\\\"½Ã°£\\\":\\\"%d:%d:%d\\\"}\" https://script.google.com/macros/s/AKfycby-ZPjp6MIQKeZ6Ao46uFZKZAOU9NqnvuWkw6yrnvbp2mQqy_42skd0nwDC2Mm0MDOBgg/exec",
+        userid, local_time->tm_mon + 1, local_time->tm_mday + 1, wallet, nowlevel , futurelevel, choice, tnf ? "true" : "false", furnitureNum, sell + buyMoney, sellHome ? "true" : "false", local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
+>>>>>>> parent of 5994149 (Revert "ê²Œì„ë°ì´í„°ëª… ìˆ˜ì •, ì„ íƒì§€ ì¶”ê°€ ë“±")
 
     system(command);
 }
@@ -95,6 +105,7 @@ int main(void)
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     //login();
     while (Isgame == 1)
 =======
@@ -103,6 +114,11 @@ int main(void)
 >>>>>>> parent of 9eab5b8 (ê²Œì„ë°ì´í„°ëª… ìˆ˜ì •, ì„ íƒì§€ ì¶”ê°€ ë“±)
 =======
 >>>>>>> bdf2804e626aa0e4cc944733db9f73a92859c1ef
+=======
+    //login();
+    while (Isgame == 1)
+=======
+>>>>>>> parent of 5994149 (Revert "ê²Œì„ë°ì´í„°ëª… ìˆ˜ì •, ì„ íƒì§€ ì¶”ê°€ ë“±")
     login();
     while (Isgame==1)
 <<<<<<< HEAD
@@ -759,7 +775,6 @@ int maingame()
 =======
             case 1:        // °­È­¿¡ µµÀü ÇÒ °æ¿ì
                 randNum = rand() % 100 + 1;
-<<<<<<< HEAD
                 choice = 1;
 >>>>>>> 6bf16cd0668bbe198f530a83108d998dae739f52
 =======
@@ -767,11 +782,14 @@ int maingame()
                 randNum = rand() % 100 + 1;
 >>>>>>> adc86954b01e2ed0855894b15c5235879ff05a1a
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 9eab5b8 (ê²Œì„ë°ì´í„°ëª… ìˆ˜ì •, ì„ íƒì§€ ì¶”ê°€ ë“±)
 =======
 >>>>>>> ce736913c6c021b816953a837d82823a848a13e5
 >>>>>>> bdf2804e626aa0e4cc944733db9f73a92859c1ef
+=======
+>>>>>>> parent of 5994149 (Revert "ê²Œì„ë°ì´í„°ëª… ìˆ˜ì •, ì„ íƒì§€ ì¶”ê°€ ë“±")
 
             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (randNum < Num) {
@@ -826,6 +844,10 @@ int maingame()
 >>>>>>> ce736913c6c021b816953a837d82823a848a13e5
             case 2:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+                choice = 2;
+>>>>>>> parent of 5994149 (Revert "ê²Œì„ë°ì´í„°ëª… ìˆ˜ì •, ì„ íƒì§€ ì¶”ê°€ ë“±")
                 // Æ÷±â¸¦ ÇÒ °æ¿ì ÇÁ·Î±×·¥ Á¾·á
                 printf("\n         ¾î ³ª°¡~\n");
 =======
@@ -838,6 +860,7 @@ int maingame()
                 break;
 
             case 3:
+                choice = 3;
                 sellHome = true;
                 nowlevel = level + 1;      //ï¿½Ø´ï¿½ ï¿½Ü°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 futurelevel = level + 2;
@@ -853,6 +876,7 @@ int maingame()
                 break;
                 
             case 4:
+                choice = 4;
                 Store();
                 break;
         }

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <FullPath>D:\Gamedata\Re제로부터 시작하는 노숙자 생활\x64\Debug\Re제로부터 시작하는 노숙자 생활.exe</FullPath>
+=======
+      <FullPath>D:\GameDATAmain\Re제로부터 시작하는 노숙자 생활\x64\Debug\Re제로부터 시작하는 노숙자 생활.exe</FullPath>
+>>>>>>> 6bf16cd0668bbe198f530a83108d998dae739f52
+=======
+      <FullPath>D:\GameDATA\Re제로부터 시작하는 노숙자 생활\x64\Debug\Re제로부터 시작하는 노숙자 생활.exe</FullPath>
+>>>>>>> adc86954b01e2ed0855894b15c5235879ff05a1a
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>
