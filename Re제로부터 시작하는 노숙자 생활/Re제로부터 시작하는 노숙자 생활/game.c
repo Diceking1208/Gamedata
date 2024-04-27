@@ -1,4 +1,4 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
@@ -7,17 +7,17 @@
 
 int userid=0;
 int Isgame = 1;
-int isTry = 0;                          // °­È­¸¦ ÇÒ °ÍÀÎÁö ¼±ÅÃ
-int level = 0;                          // ÇöÀç ¹«±âÀÇ ·¹º§
-int randNum = 0;                        // ·£´ı°ªÀ» ÀúÀå
-int Num = 100;                          // È®·ü ¼ıÀÚ
-int furnitureNum = 0;                   // °¡±¸ ¹øÈ£
+int isTry = 0;                          // ê°•í™”ë¥¼ í•  ê²ƒì¸ì§€ ì„ íƒ
+int level = 0;                          // í˜„ì¬ ë¬´ê¸°ì˜ ë ˆë²¨
+int randNum = 0;                        // ëœë¤ê°’ì„ ì €ì¥
+int Num = 100;                          // í™•ë¥  ìˆ«ì
+int furnitureNum = 0;                   // ê°€êµ¬ ë²ˆí˜¸
 int furnitureBuy = 0;
-int buyMoney = 0;                       //°¡±¸ °¡°İ
-int buy = 0;                            // Áı ±¸¸Å
-int sell = 0;                           // Áı ÆÈ¶§
-int wallet = 50000;                     // ÇöÀç °¡Áö°í ÀÖ´Â ±İ¾×
-char* house[] = { "¼­¿ï¿ª ³ë¼÷","¹İÁöÇÏ¿ø·ë","¹ú·¹ ³ª¿À´Â ¿ø·ë", "Á¼Àº ¿ø·ë","Àû´çÇÑ ¿ø·ë","³ĞÀº ¿ø·ë","¹ú·¹ °¡²û ³ª¿À´Â Åõ·ë","Ãş°£¼ÒÀ½ Áö¸®´Â Åõ·ë","º¯±â Àß ¸·È÷´Â Åõ·ë","Àû´çÇÑ Åõ·ë","Â¼´Â Åõ·ë","°Á ¾ÆÆÄÆ®","±×³É ÁÁÀº ¾ÆÆÄÆ®","¸ÚÀÖ´Â ¾ÆÆÄÆ®","È£È­·Î¿î ¾ÆÆÄÆ®","¸¶´çÀÖ´Â ´Üµ¶ÁÖÅÃ","½Ã±×´Ï¿¤" };
+int buyMoney = 0;                       //ê°€êµ¬ ê°€ê²©
+int buy = 0;                            // ì§‘ êµ¬ë§¤
+int sell = 0;                           // ì§‘ íŒ”ë•Œ
+int wallet = 50000;                     // í˜„ì¬ ê°€ì§€ê³  ìˆëŠ” ê¸ˆì•¡
+char* house[] = { "ì„œìš¸ì—­ ë…¸ìˆ™","ë°˜ì§€í•˜ì›ë£¸","ë²Œë ˆ ë‚˜ì˜¤ëŠ” ì›ë£¸", "ì¢ì€ ì›ë£¸","ì ë‹¹í•œ ì›ë£¸","ë„“ì€ ì›ë£¸","ë²Œë ˆ ê°€ë” ë‚˜ì˜¤ëŠ” íˆ¬ë£¸","ì¸µê°„ì†ŒìŒ ì§€ë¦¬ëŠ” íˆ¬ë£¸","ë³€ê¸° ì˜ ë§‰íˆëŠ” íˆ¬ë£¸","ì ë‹¹í•œ íˆ¬ë£¸","ì©ŒëŠ” íˆ¬ë£¸","ê± ì•„íŒŒíŠ¸","ê·¸ëƒ¥ ì¢‹ì€ ì•„íŒŒíŠ¸","ë©‹ìˆëŠ” ì•„íŒŒíŠ¸","í˜¸í™”ë¡œìš´ ì•„íŒŒíŠ¸","ë§ˆë‹¹ìˆëŠ” ë‹¨ë…ì£¼íƒ","ì‹œê·¸ë‹ˆì—˜" };
 int logintime = 20240425;
 int nowtime = 2009;
 bool tnf = true;
@@ -26,11 +26,11 @@ bool tnf = true;
 void PostUser()
 {
     char command[2048];
-    // sprintf ´ë½Å sprintf_s »ç¿ë
-    sprintf_s(command, sizeof(command), "curl -d \"{\\\"ÇÃ·¹ÀÌ¾îID\\\":\\\"%d\\\",\\\"Á¢¼ÓÀÏ½Ã\\\":\\\"%d\\\",\\\"¼ÒÁö±İ\\\":%d,\\\"ÇöÀç´Ü°è\\\":%d,\\\"µµÀü´Ü°è\\\":%d,\\\"¼º°ø¿©ºÎ\\\":%s,\\\"±¸¸Å°¡±¸\\\":\\\"%d\\\",\\\"Áı°ª\\\":%d,\\\"ÆÇ¸Å±İ\\\":%d,\\\"½Ã°£\\\":\\\"%d\\\"}\" https://script.google.com/macros/s/AKfycbwzGAs5zAVRtnLZ8AFJfRANQ7kPqQjfZz79tRSZn_-dzOLYbhUPSXr-GxrMGVwaLCdd-g/exec",
+    // sprintf ëŒ€ì‹  sprintf_s ì‚¬ìš©
+    sprintf_s(command, sizeof(command), "curl -d \"{\\\"í”Œë ˆì´ì–´ID\\\":\\\"%d\\\",\\\"ì ‘ì†ì¼ì‹œ\\\":\\\"%d\\\",\\\"ì†Œì§€ê¸ˆ\\\":%d,\\\"í˜„ì¬ë‹¨ê³„\\\":%d,\\\"ë„ì „ë‹¨ê³„\\\":%d,\\\"ì„±ê³µì—¬ë¶€\\\":%s,\\\"êµ¬ë§¤ê°€êµ¬\\\":\\\"%d\\\",\\\"ì§‘ê°’\\\":%d,\\\"íŒë§¤ê¸ˆ\\\":%d,\\\"ì‹œê°„\\\":\\\"%d\\\"}\" https://script.google.com/macros/s/AKfycbwzGAs5zAVRtnLZ8AFJfRANQ7kPqQjfZz79tRSZn_-dzOLYbhUPSXr-GxrMGVwaLCdd-g/exec",
         userid, logintime, wallet, level + 1, level + 2, tnf ? "true" : "false", furnitureNum, sell + buyMoney, sell, nowtime);
 
-    // CURLÀ» »ç¿ëÇÏ¿© POST ¿äÃ» º¸³»±â
+    // CURLì„ ì‚¬ìš©í•˜ì—¬ POST ìš”ì²­ ë³´ë‚´ê¸°
     system(command);
 }
 
@@ -38,12 +38,12 @@ void PostUser()
 
 int main(void)
 {
-    srand((int)time(NULL));                 // ·£´ı ½Ãµå°ª ¼³Á¤
+    srand((int)time(NULL));                 // ëœë¤ ì‹œë“œê°’ ì„¤ì •
 
     //login();
     while (Isgame==1)
     {
-        // È­¸é Á¤¸®
+        // í™”ë©´ ì •ë¦¬
         system("@cls||clear");
         switch (level)
         {
@@ -68,7 +68,7 @@ int main(void)
         }
         
          maingame();
-         printf("\n°è¼ÓÇÏ·Á¸é ¾Æ¹« Å°³ª ´©¸£½Ê½Ã¿À.\n");
+         printf("\nê³„ì†í•˜ë ¤ë©´ ì•„ë¬´ í‚¤ë‚˜ ëˆ„ë¥´ì‹­ì‹œì˜¤.\n");
          _getch();
     }
     return 0;
@@ -77,18 +77,18 @@ int main(void)
 void Store()
 {
    system("@cls||clear");
-    printf("     °¡Áø µ· : %d ¿ø\n", wallet);
-    printf("     ÇöÀç Áı : %s\n\n", house[level]);
-    printf("        ÀÎÅ×¸®¾î »óÁ¡\n");
-    printf("       < ¿À´ÃÀÇ ¾ÆÀÌÅÛ  >\n");
+    printf("     ê°€ì§„ ëˆ : %d ì›\n", wallet);
+    printf("     í˜„ì¬ ì§‘ : %s\n\n", house[level]);
+    printf("        ì¸í…Œë¦¬ì–´ ìƒì \n");
+    printf("       < ì˜¤ëŠ˜ì˜ ì•„ì´í…œ  >\n");
     printf("-------------------------------\n");
-    printf("     1.²É¹«´Ì º®Áö     (- 5200 ¿ø) \n");
-    printf("     2.³ë¶õ»ö ¹Ù´Ú     (- 9700 ¿ø)\n");
-    printf("     3.È²±İº¯±â     (- 128,000 ¿ø)\n");
-    printf("     4.¾Ë·Ï´Ş·Ï¿ÊÀå  (- 34,000 ¿ø)\n");
-    printf("     5.°ÔÀÓÀ¸·Î µ¹¾Æ°¡±â \n ");
+    printf("     1.ê½ƒë¬´ëŠ¬ ë²½ì§€     (- 5200 ì›) \n");
+    printf("     2.ë…¸ë€ìƒ‰ ë°”ë‹¥     (- 9700 ì›)\n");
+    printf("     3.í™©ê¸ˆë³€ê¸°     (- 128,000 ì›)\n");
+    printf("     4.ì•Œë¡ë‹¬ë¡ì˜·ì¥  (- 34,000 ì›)\n");
+    printf("     5.ê²Œì„ìœ¼ë¡œ ëŒì•„ê°€ê¸° \n ");
     printf("-------------------------------\n");
-    printf("        ÀÔ·Â : ");
+    printf("        ì…ë ¥ : ");
     scanf_s("%d", &furnitureBuy);
 
     
@@ -96,23 +96,23 @@ void Store()
     {
         case 1:
             wallet -= 5200;
-            printf("±¸¸Å°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù.");
-            printf("     °¡Áø µ· : %d ¿ø\n", wallet);
+            printf("êµ¬ë§¤ê°€ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
+            printf("     ê°€ì§„ ëˆ : %d ì›\n", wallet);
             break;
         case 2:
             wallet -= 9700;
-            printf("±¸¸Å°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù.");
-            printf("     °¡Áø µ· : %d ¿ø\n", wallet);
+            printf("êµ¬ë§¤ê°€ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
+            printf("     ê°€ì§„ ëˆ : %d ì›\n", wallet);
             break;
         case 3:
             wallet -= 128000;
-            printf("±¸¸Å°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù.");
-            printf("     °¡Áø µ· : %d ¿ø\n", wallet);
+            printf("êµ¬ë§¤ê°€ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
+            printf("     ê°€ì§„ ëˆ : %d ì›\n", wallet);
             break;
         case 4:
             wallet -= 34000;
-            printf("±¸¸Å°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù.");
-            printf("     °¡Áø µ· : %d ¿ø\n", wallet);
+            printf("êµ¬ë§¤ê°€ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
+            printf("     ê°€ì§„ ëˆ : %d ì›\n", wallet);
             break;
         case 5:
             break;
@@ -127,56 +127,68 @@ int maingame()
 {       
         PostUser();
         system("@cls||clear");
-        printf("     °¡Áø µ· : %d ¿ø\n", wallet);
-        printf("     ÇöÀç Áı : %s\n", house[level]);
-        printf(" ÁıÀ» °­È­ ÇÏ½Ã°Ú½À´Ï±î ? \n\n");
-        printf("   < ¼º°øÈ®·ü : %d %% >\n", Num);
+        printf("     ê°€ì§„ ëˆ : %d ì›\n", wallet);
+        printf("     í˜„ì¬ ì§‘ : %s\n", house[level]);
+        printf(" ì§‘ì„ ê°•í™” í•˜ì‹œê² ìŠµë‹ˆê¹Œ ? \n\n");
+        printf("   < ì„±ê³µí™•ë¥  : %d %% >\n", Num);
         printf("-------------------------------\n");
-        printf("     1.Áı ±¸¸Å      (- %d ¿ø)\n", buy);
-        printf("     2.°ÅÁö·Î »ì±â  (°ÔÀÓÁ¾·á)\n");
-        printf("     3.Áı ÆÇ¸Å      (+ %d ¿ø)\n", sell);
-        printf("     4.°¡±¸ ±¸¸Å     \n");
-        printf("     5.ÀúÀåÇÏ±â     (Ã³À½ºÎÅÍ´Ù½Ã)\n");
+        printf("     1.ì§‘ êµ¬ë§¤      (- %d ì›)\n", buy);
+        printf("     2.ê±°ì§€ë¡œ ì‚´ê¸°  (ê²Œì„ì¢…ë£Œ)\n");
+        printf("     3.ì§‘ íŒë§¤      (+ %d ì›)\n", sell);
+        printf("     4.ê°€êµ¬ êµ¬ë§¤     \n");
+        printf("     5.ì €ì¥í•˜ê¸°     (ì²˜ìŒë¶€í„°ë‹¤ì‹œ)\n");
         printf("-------------------------------\n");
-        printf("        ÀÔ·Â : ");
+        printf("        ì…ë ¥ : ");
         scanf_s("%d", &isTry);
 
         switch (isTry)
         {
-            case 1:        // °­È­¿¡ µµÀü ÇÒ °æ¿ì
+            case 1:        // ê°•í™”ì— ë„ì „ í•  ê²½ìš°
                 randNum = rand() % 100 + 1;
 
-            // ÃßÃâÇÑ ·£´ı °ªÀÌ ¼º°øÈ®·ü º¸´Ù ÀÛÀ¸¸é ¼º°ø
+            // ì¶”ì¶œí•œ ëœë¤ ê°’ì´ ì„±ê³µí™•ë¥  ë³´ë‹¤ ì‘ìœ¼ë©´ ì„±ê³µ
             if (randNum < Num) {
-                // ¼º°øÈ­¸é Ãâ·Â
+                // ì„±ê³µí™”ë©´ ì¶œë ¥
                 wallet -= buy;
-                printf("\n\nÁö°© : %d ¿ø\n\n", wallet);
+                printf("\n\nì§€ê°‘ : %d ì›\n\n", wallet);
+                printf("\033[0;32mlâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€l\n\033[0m");
+                printf("\033[0;32mlâ™¡â™¡Successâ™¡â™¡l\n\033[0m");
+                printf("\033[0;32mlâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€l\n\033[0m");
+                printf("\033[0;32m    âˆ§ âˆ§ ||\n\033[0m");
+                printf("\033[0;32mã€€ ( 'Ï‰' ||\n\033[0m");
+                printf("\033[0;32mã€€ /ã€€ã¤  Î¦\n\033[0m");
                 printf("************* SUCCESS *************\n");
-                printf("  %s  ->  %s    \n", house[level], house[level + 1]);
+                printf("  %s  -> \033[0;32m%s\n\033[0m", house[level], house[level + 1]);
                 printf("************* SUCCESS *************\n");
                 level++;
             }
+
             else
             {
-                // ½ÇÆĞÈ­¸é Ãâ·Â
+                // ì‹¤íŒ¨í™”ë©´ ì¶œë ¥
                 wallet -= buy;
-                printf("\n\nÁö°© : %d ¿ø\n", wallet);
-                printf("         ¾Æ ¸ÁÇß³×...\n");
-                printf("Áı '%s' À» ÀÒ¾ú½À´Ï´Ù.\n", house[level]);
+                printf("\n\nì§€ê°‘ : %d ì›\n", wallet);
+                printf("\033[0;31mlâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€l\n\033[0m");
+                printf("\033[0;31mlë„Œ ê°±ìƒë¶ˆê°€ëŠ¥ ê±°ì§€ë‹¤l\n\033[0m");
+                printf("\033[0;31mlâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€l\n\033[0m");
+                printf("\033[0;31m  âˆ§âˆ§   ||\n\033[0m");
+                printf("\033[0;31m (^ã……^)  ||\n\033[0m");
+                printf("\033[0;31m/ . . . .Î¦\n\033[0m");
+                printf("\033[0;31mì§‘ '%s' ì„ ìƒì—ˆìŠµë‹ˆë‹¤.\n", house[level]);
                 level = 0;
             }
             break;
 
             case 2:
-                // Æ÷±â¸¦ ÇÒ °æ¿ì ÇÁ·Î±×·¥ Á¾·á
-                printf("\n         ¾î ³ª°¡~\n");
+                // í¬ê¸°ë¥¼ í•  ê²½ìš° í”„ë¡œê·¸ë¨ ì¢…ë£Œ
+                printf("\n         ì–´ ë‚˜ê°€~\n");
                 Isgame = 0;
                 return -1;
                 break;
 
             case 3:
                 wallet += sell;
-                printf("\n\nÁö°© : %d ¿ø\n", wallet);
+                printf("\n\nì§€ê°‘ : %d ì›\n", wallet);
                 printf("  %s  ->  %s    \n\n", house[level], house[0]);
                 level = 0;
                 break;
@@ -191,10 +203,10 @@ int maingame()
 int login()
 {
     system("@cls||clear");
-    printf("            ·Î ±× ÀÎ\n", wallet);
+    printf("            ë¡œ ê·¸ ì¸\n", wallet);
     printf("-------------------------------\n\n");
-    printf("       id´Â ÇĞ¹øÀ» ÀÔ·ÂÇÏ¼¼¿ä. \n");
-    printf("       °³¹ßÀÚ¸ğµå : 1234 / °¡ÀÔ : 0 \n");
+    printf("       idëŠ” í•™ë²ˆì„ ì…ë ¥í•˜ì„¸ìš”. \n");
+    printf("       ê°œë°œìëª¨ë“œ : 1234 / ê°€ì… : 0 \n");
     printf("            ID : ");
     scanf_s("%d", &userid);
     printf("\n\n-------------------------------\n");
@@ -204,8 +216,8 @@ int login()
         int input=0;
         case 1234:
             wallet = 999999999;
-            printf(" ±İ¾×Àº 999,999,999¿øÀ¸·Î ½ÃÀÛµË´Ï´Ù. \n");
-            printf(" ½ÃÀÛÇÒ ·¹º§À» ÀÔ·ÂÇÏ¼¼¿ä :  ");
+            printf(" ê¸ˆì•¡ì€ 999,999,999ì›ìœ¼ë¡œ ì‹œì‘ë©ë‹ˆë‹¤. \n");
+            printf(" ì‹œì‘í•  ë ˆë²¨ì„ ì…ë ¥í•˜ì„¸ìš” :  ");
             scanf_s("%d", &input);
             level = input;
             break;
