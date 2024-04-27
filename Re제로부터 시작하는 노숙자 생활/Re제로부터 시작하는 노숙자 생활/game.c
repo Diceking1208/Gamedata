@@ -1,7 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS  // sprintf_s ÇÔ¼ö¸¦ »ç¿ëÇÏ±â À§ÇØ °æ°í ¹«½Ã
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <time.h>
 <<<<<<< HEAD
 #include <stdbool.h>
@@ -19,6 +18,7 @@ int furnitureBuy = 0;
 int buyMoney = 0;                       //°¡±¸ °¡°Ý
 =======
 #include <conio.h>
+<<<<<<< HEAD
 #include <stdbool.h>
 
 int userid=0;
@@ -106,11 +106,28 @@ bool tnf = true;
 
 
 
+=======
+>>>>>>> parent of 0db0fee (í˜„ì§ˆ ì¶”ê°€)
 
+    int isTry = 0;                          // °­È­¸¦ ÇÒ °ÍÀÎÁö ¼±ÅÃ
+    int level = 0;                          // ÇöÀç ¹«±âÀÇ ·¹º§
+    int randNum = 0;                        // ·£´ý°ªÀ» ÀúÀå
+    int Num = 100;                          // È®·ü ¼ýÀÚ
+    int furnitureNum = 0;                   // °¡±¸ ¹øÈ£
+    int furnitureBuy = 0;
+    int buyMoney = 0;                       //°¡±¸ °¡°Ý
+    int buy = 0;                            // Áý ±¸¸Å
+    int sell = 0;                           // Áý ÆÈ¶§
+    int wallet = 50000;                     // ÇöÀç °¡Áö°í ÀÖ´Â ±Ý¾×
+    char* house[] = { "¼­¿ï¿ª ³ë¼÷","¹ÝÁöÇÏ¿ø·ë","¹ú·¹ ³ª¿À´Â ¿ø·ë", "Á¼Àº ¿ø·ë","Àû´çÇÑ ¿ø·ë","³ÐÀº ¿ø·ë","¹ú·¹ °¡²û ³ª¿À´Â Åõ·ë","Ãþ°£¼ÒÀ½ Áö¸®´Â Åõ·ë","º¯±â Àß ¸·È÷´Â Åõ·ë","Àû´çÇÑ Åõ·ë","Â¼´Â Åõ·ë","°Á ¾ÆÆÄÆ®","±×³É ÁÁÀº ¾ÆÆÄÆ®","¸ÚÀÖ´Â ¾ÆÆÄÆ®","È£È­·Î¿î ¾ÆÆÄÆ®","¸¶´çÀÖ´Â ´Üµ¶ÁÖÅÃ","½Ã±×´Ï¿¤" };
+    char* furniture[] = { "²É¹«´Ì º®Áö", "³ë¶õ»ö ¹Ù´Ú", "È²±Ýº¯±â", "¸»ÇÏ´ÂÀÇÀÚ","¼Ö·Î¹è°Ô", "¾Ë·Ï´Þ·Ï¿ÊÀå" };
+    
 int main(void)
 {
-    srand((int)time(NULL));                 // ·£´ý ½Ãµå°ª ¼³Á¤
+     maingame();
+}
 
+<<<<<<< HEAD
     //login();
     while (Isgame==1)
 >>>>>>> adc86954b01e2ed0855894b15c5235879ff05a1a
@@ -458,6 +475,23 @@ int main(void)
          _getch();
 >>>>>>> adc86954b01e2ed0855894b15c5235879ff05a1a
     }
+=======
+int BuyMoney()
+{
+    furnitureNum = rand() % 6;
+    if (furniture[furnitureNum] = 0)
+    {buyMoney = 5500;}
+    else if (furniture[furnitureNum] = 0)
+    {buyMoney = 25500;}
+    else if (furniture[furnitureNum] = 0)
+    { buyMoney = 32500;}
+    else if (furniture[furnitureNum] = 0)
+    { buyMoney = 4500;}
+    else if (furniture[furnitureNum] = 0)
+    { buyMoney = 9300;}
+    else if (furniture[furnitureNum] = 0)
+    {buyMoney = 7000;}
+>>>>>>> parent of 0db0fee (í˜„ì§ˆ ì¶”ê°€)
     return 0;
 }
 void SellFurniture(int furnitureNum)
@@ -467,18 +501,23 @@ void SellFurniture(int furnitureNum)
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
 >>>>>>> adc86954b01e2ed0855894b15c5235879ff05a1a
 void Store()
+=======
+int Store()
+>>>>>>> parent of 0db0fee (í˜„ì§ˆ ì¶”ê°€)
 {
-   system("@cls||clear");
+    system("@cls||clear");
     printf("     °¡Áø µ· : %d ¿ø\n", wallet);
     printf("     ÇöÀç Áý : %s\n\n", house[level]);
     printf("        ÀÎÅ×¸®¾î »óÁ¡\n");
     printf("       < ¿À´ÃÀÇ ¾ÆÀÌÅÛ  >\n");
     printf("-------------------------------\n");
+<<<<<<< HEAD
 <<<<<<< HEAD
 
    
@@ -523,12 +562,23 @@ void Store()
     printf("     2.³ë¶õ»ö ¹Ù´Ú     (- 9700 ¿ø)\n");
     printf("     3.È²±Ýº¯±â     (- 128,000 ¿ø)\n");
     printf("     4.¾Ë·Ï´Þ·Ï¿ÊÀå  (- 34,000 ¿ø)\n");
+=======
+    BuyMoney();
+    printf("     1.%s    (- %d ¿ø)\n", furniture[furnitureNum], buyMoney);
+    BuyMoney();
+    printf("     2.%s    (- %d ¿ø)\n", furniture[furnitureNum], buyMoney);
+    BuyMoney();
+    printf("     3.%s    (- %d ¿ø)\n", furniture[furnitureNum], buyMoney);
+    BuyMoney();
+    printf("     4.%s    (- %d ¿ø)\n", furniture[furnitureNum], buyMoney);
+>>>>>>> parent of 0db0fee (í˜„ì§ˆ ì¶”ê°€)
     printf("     5.°ÔÀÓÀ¸·Î µ¹¾Æ°¡±â \n ");
 >>>>>>> adc86954b01e2ed0855894b15c5235879ff05a1a
     printf("-------------------------------\n");
     printf("        ÀÔ·Â : ");
     scanf_s("%d", &furnitureBuy);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -593,101 +643,57 @@ int maingame()
 =======
     
     switch (furnitureBuy)
+=======
+    if(furnitureBuy == 5)
+>>>>>>> parent of 0db0fee (í˜„ì§ˆ ì¶”ê°€)
     {
-        case 1:
-            wallet -= 5200;
-            printf("±¸¸Å°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù.");
-            printf("     °¡Áø µ· : %d ¿ø\n", wallet);
-            break;
-        case 2:
-            wallet -= 9700;
-            printf("±¸¸Å°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù.");
-            printf("     °¡Áø µ· : %d ¿ø\n", wallet);
-            break;
-        case 3:
-            wallet -= 128000;
-            printf("±¸¸Å°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù.");
-            printf("     °¡Áø µ· : %d ¿ø\n", wallet);
-            break;
-        case 4:
-            wallet -= 34000;
-            printf("±¸¸Å°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù.");
-            printf("     °¡Áø µ· : %d ¿ø\n", wallet);
-            break;
-        case 5:
-            break;
-        default:
-            maingame();
-            break;
+        maingame();
     }
-    return 0;
-}
-
-void Cash()
-{
-    system("@cls||clear");
-    printf("     °¡Áø µ· : %d ¿ø\n", wallet);
-    printf("     ÇöÀç Áý : %s\n\n", house[level]);
-    printf("          ÇöÁúÇÏ¼À\n");
-    printf("       < °áÁ¦ ¾ÆÀÌÅÛ  >\n");
-    printf("-------------------------------\n");
-    printf("       °áÁ¦±Ý¾×      °ÔÀÓ¸Ó´Ï \n");
-    printf("     1. 4,900¿ø    (+ 5,000 ¿ø) \n");
-    printf("     2. 9,900¿ø    (+ 10,000 ¿ø)\n");
-    printf("     3. 14,000¿ø   (+ 12,800 ¿ø)\n");
-    printf("     4. 35,000¿ø   (+ 32,500 ¿ø)\n");
-    printf("     5. 65,000¿ø   (+ 65,000 ¿ø)\n ");
-    printf("    6. 99,000¿ø   (+ 100,000¿ø)\n ");
-    printf("    7.°ÔÀÓÀ¸·Î µ¹¾Æ°¡±â \n ");
-    printf("-------------------------------\n");
-    printf("        ÀÔ·Â : ");
-    scanf_s("%d", &CashBuy);
-
-    switch (CashBuy)
+    else if (furnitureBuy == 1 || furnitureBuy == 2 || furnitureBuy == 3 || furnitureBuy == 4)
     {
-        case 1:
-            wallet += 5000;
-            printf("±¸¸Å°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù.");
-            printf("     °¡Áø µ· : %d ¿ø\n", wallet);
-            break;
-        case 2:
-            wallet += 10000;
-            printf("±¸¸Å°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù.");
-            printf("     °¡Áø µ· : %d ¿ø\n", wallet);
-            break;
-        case 3:
-            wallet += 12800;
-            printf("±¸¸Å°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù.");
-            printf("     °¡Áø µ· : %d ¿ø\n", wallet);
-            break;
-        case 4:
-            wallet += 32500;
-            printf("±¸¸Å°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù.");
-            printf("     °¡Áø µ· : %d ¿ø\n", wallet);
-            break;
-        case 5:
-            wallet += 65000;
-            printf("±¸¸Å°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù.");
-            printf("     °¡Áø µ· : %d ¿ø\n", wallet);
-            break;
-        case 6:
-            wallet += 100000;
-            printf("±¸¸Å°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù.");
-            printf("     °¡Áø µ· : %d ¿ø\n", wallet);
-            break;
-        case 7:
-            break;
-        default:
-            maingame();
-            break;
+        wallet -= buyMoney;
+        printf("%s ±¸¸Å°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù.", furniture[furnitureBuy]);
+        printf("     °¡Áø µ· : %d ¿ø\n", wallet);
     }
     return 0;
 }
 
 
 int maingame()
+<<<<<<< HEAD
 {       
 >>>>>>> adc86954b01e2ed0855894b15c5235879ff05a1a
+=======
+{
+    srand((int)time(NULL));                 // ·£´ý ½Ãµå°ª ¼³Á¤
+
+    while (1)
+    {
+        // È­¸é Á¤¸®
+        system("@cls||clear");
+        switch (level)
+        {
+        case 0:  Num = 100; buy = 2000;  sell = 0;  break;
+        case 1:  Num = 95; buy = 4000;  sell = 10000; break;
+        case 2:  Num = 90; buy = 6000;  sell = 20000; break;
+        case 3:  Num = 87; buy = 8000;  sell = 25000; break;
+        case 4:  Num = 85; buy = 10000; sell = 30000; break;
+        case 5:  Num = 83; buy = 12000; sell = 35000; break;
+        case 6:  Num = 80; buy = 14000; sell = 40000; break;
+        case 7:  Num = 77; buy = 16000; sell = 45000; break;
+        case 8:  Num = 75; buy = 18000; sell = 50000; break;
+        case 9:  Num = 73; buy = 20000; sell = 55000; break;
+        case 10: Num = 70; buy = 22000; sell = 60000; break;
+        case 11: Num = 68; buy = 24000; sell = 65000; break;
+        case 12: Num = 65; buy = 26000; sell = 70000; break;
+        case 13: Num = 63; buy = 28000; sell = 75000; break;
+        case 14: Num = 60; buy = 30000; sell = 80000; break;
+        case 15: Num = 58; buy = 33000; sell = 85000; break;
+        case 16: Num = 55; buy = 36000; sell = 90000; break;
+        default: Num = 100; buy = 2000; sell = 0;     break;
+        }
+        // È­¸é Á¤¸®
+>>>>>>> parent of 0db0fee (í˜„ì§ˆ ì¶”ê°€)
         system("@cls||clear");
         printf("     °¡Áø µ· : %d ¿ø\n", wallet);
         printf("     ÇöÀç Áý : %s\n", house[level]);
@@ -700,7 +706,7 @@ int maingame()
         printf("     3.Áý ÆÇ¸Å      (+ %d ¿ø)\n",sell);
 =======
         printf("     1.Áý ±¸¸Å      (- %d ¿ø)\n", buy);
-        printf("     2.ÇöÁúÇÏ±â      \n");
+        printf("     2.°ÅÁö·Î »ì±â  (°ÔÀÓÁ¾·á)\n");
         printf("     3.Áý ÆÇ¸Å      (+ %d ¿ø)\n", sell);
 >>>>>>> adc86954b01e2ed0855894b15c5235879ff05a1a
         printf("     4.°¡±¸ ±¸¸Å     \n");
@@ -711,6 +717,7 @@ int maingame()
 
         switch (isTry)
         {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         case 1:        // °­È­¿¡ µµÀü ÇÒ °æ¿ì
@@ -724,6 +731,10 @@ int maingame()
             case 1:        // °­È­¿¡ µµÀü ÇÒ °æ¿ì
                 randNum = rand() % 100 + 1;
 >>>>>>> adc86954b01e2ed0855894b15c5235879ff05a1a
+=======
+        case 1:        // °­È­¿¡ µµÀü ÇÒ °æ¿ì
+            randNum = rand() % 100 + 1;
+>>>>>>> parent of 0db0fee (í˜„ì§ˆ ì¶”ê°€)
 
             // ÃßÃâÇÑ ·£´ý °ªÀÌ ¼º°øÈ®·ü º¸´Ù ÀÛÀ¸¸é ¼º°ø
             if (randNum < Num) {
@@ -732,11 +743,15 @@ int maingame()
                 // ¼º°øÈ­¸é Ãâ·Â
                 wallet -= buy;
                 printf("\n\nÁö°© : %d ¿ø\n\n", wallet);
-                printf("************* SUCCESS *************\n");
+                printf("\033[0;32m************* SUCCESS *************\n\033[0m");
                 printf("  %s  ->  %s    \n", house[level], house[level + 1]);
+<<<<<<< HEAD
                 printf("************* SUCCESS *************\n");
                 nowlevel = level+1;
                 futurelevel = level + 2;
+=======
+                printf("\033[0;32m************* SUCCESS *************\n\033[0m");
+>>>>>>> parent of 0db0fee (í˜„ì§ˆ ì¶”ê°€)
                 level++;
             }
             else
@@ -749,10 +764,15 @@ int maingame()
                 wallet -= buy;
 >>>>>>> 6bf16cd0668bbe198f530a83108d998dae739f52
                 printf("\n\nÁö°© : %d ¿ø\n", wallet);
+<<<<<<< HEAD
                 printf("         ¾Æ ¸ÁÇß³×...\n");
                 printf("Áý '%s' À» ÀÒ¾ú½À´Ï´Ù.\n", house[level]);
                 nowlevel = level + 1;
                 futurelevel = level + 2;
+=======
+                printf("         \033[0;31m¾Æ ¸ÁÇß³×...\n\033[0m");
+                printf("Áý \033[0;31m'%s' \033[0mÀ» ÀÒ¾ú½À´Ï´Ù.\n", house[level]);
+>>>>>>> parent of 0db0fee (í˜„ì§ˆ ì¶”ê°€)
                 level = 0;
                 
 <<<<<<< HEAD
@@ -761,6 +781,7 @@ int maingame()
                 }
             }
             break;
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         case 2:
@@ -838,22 +859,31 @@ int login()
 
 }
 =======
+=======
+        case 2:
+            // Æ÷±â¸¦ ÇÒ °æ¿ì ÇÁ·Î±×·¥ Á¾·á
+            printf("\n         ¾î ³ª°¡~\n");
+            return -1;
+        case 3:
+            wallet += sell;
+            printf("\n\nÁö°© : %d ¿ø\n", wallet);
+            printf("  %s  ->  %s    \n\n", house[level], house[0]);
+            level = 0;
+            break;
+>>>>>>> parent of 0db0fee (í˜„ì§ˆ ì¶”ê°€)
 
-            case 2:
-                Cash();
-                break;
-
-            case 3:
-                wallet += sell;
-                printf("\n\nÁö°© : %d ¿ø\n", wallet);
-                printf("  %s  ->  %s    \n\n", house[level], house[0]);
-                level = 0;
-                break;
-
-            case 4:
-                Store();
-                break;
+        case 4:
+            Store();
         }
+<<<<<<< HEAD
 }
 
 >>>>>>> adc86954b01e2ed0855894b15c5235879ff05a1a
+=======
+        // ÁøÇà»óÈ² È®ÀÎÀÌ ¿ëÀÌ ÇÏµµ·Ï ´ë±â
+        printf("\n°è¼ÓÇÏ·Á¸é ¾Æ¹« Å°³ª ´©¸£½Ê½Ã¿À.\n");
+        _getch();
+    }
+    return 0;
+}
+>>>>>>> parent of 0db0fee (í˜„ì§ˆ ì¶”ê°€)
