@@ -64,7 +64,7 @@ int main(void)
     t = localtime(&timer);
     srand((unsigned int)time(NULL));
 
-    login();
+   // login();
     while (Isgame==1)
     {
         // 화면 정리
@@ -558,9 +558,8 @@ void Cash()
 
 int maingame()
 {       
-        
         system("@cls||clear");
-        printf("     가진 돈 : %d 원\n", wallet);
+        printf("     가진 돈 : %d원\n", wallet);
         printf("     현재 집 : %s\n", house[level]);
         printf(" 집을 강화 하시겠습니까 ? \n\n");
         printf("   < 성공확률 : %d %% >\n", Num);
@@ -587,8 +586,14 @@ int maingame()
                 // 성공화면 출력
                 wallet -= buy;
                 printf("\n\n지갑 : %d 원\n\n", wallet);
+                printf("\033[0;32ml───────────────l\n\033[0m");
+                printf("\033[0;32ml♡♡Success♡♡l\n\033[0m");
+                printf("\033[0;32ml───────────────l\n\033[0m");
+                printf("\033[0;32m    ∧ ∧ ||\n\033[0m");
+                printf("\033[0;32m　 ( 'ω' ||\n\033[0m");
+                printf("\033[0;32m　 /　つ  Φ\n\033[0m");
                 printf("************* SUCCESS *************\n");
-                printf("  %s  ->  %s    \n", house[level], house[level + 1]);
+                printf("  %s  -> \033[0;32m%s\n\033[0m", house[level], house[level + 1]);
                 printf("************* SUCCESS *************\n");
                 nowlevel = level+1;
                 futurelevel = level + 2;
@@ -600,8 +605,12 @@ int maingame()
                 tnf = false;
                 // 실패화면 출력
                 wallet -= buy;
-                printf("\n\n지갑 : %d 원\n", wallet);
-                printf("         아 망했네...\n");
+                printf("\033[0;31ml───────────────────────l\n\033[0m");
+                printf("\033[0;31ml넌 갱생불가능 거지다   l\n\033[0m");
+                printf("\033[0;31ml───────────────────────l\n\033[0m");
+                printf("\033[0;31m  ∧∧   ||\n\033[0m");
+                printf("\033[0;31m (^ㅅ^)  ||\n\033[0m");
+                printf("\033[0;31m/ . . . .Φ\n\033[0m");
                 printf("집 '%s' 을 잃었습니다.\n", house[level]);
                 nowlevel = level + 1;
                 futurelevel = level + 2;
@@ -638,10 +647,10 @@ int maingame()
                 Store();
                 break;
         }
-        PostUser();
+        //PostUser();
 }
 
-
+/*
 int login()
 {
     system("@cls||clear");
@@ -669,3 +678,4 @@ int login()
     return 0;
 
 }
+*/
