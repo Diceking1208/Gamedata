@@ -14,6 +14,7 @@ int Num = 100;
 int furnitureNum = 0;
 int furnitureBuy = 0;
 int buyMoney = 0;
+int CashBuy = 0;
 int buy = 0;
 int sell = 0;
 int wallet = 50000;
@@ -144,6 +145,67 @@ void Store()
     return 0;
 }
 
+void Cash()
+{
+    system("@cls||clear");
+    printf("     가진 돈 : %d 원\n", wallet);
+    printf("     현재 집 : %s\n\n", house[level]);
+    printf("          현질하셈\n");
+    printf("       < 결제 아이템  >\n");
+    printf("-------------------------------\n");
+    printf("       결제금액      게임머니 \n");
+    printf("     1. 4,900원    (+ 5,000 원) \n");
+    printf("     2. 9,900원    (+ 10,000 원)\n");
+    printf("     3. 14,000원   (+ 12,800 원)\n");
+    printf("     4. 35,000원   (+ 32,500 원)\n");
+    printf("     5. 65,000원   (+ 65,000 원)\n ");
+    printf("    6. 99,000원   (+ 100,000원)\n ");
+    printf("    7.게임으로 돌아가기 \n ");
+    printf("-------------------------------\n");
+    printf("        입력 : ");
+    scanf_s("%d", &CashBuy);
+
+    switch (CashBuy)
+    {
+        case 1:
+            wallet += 5000;
+            printf("구매가 완료 되었습니다.");
+            printf("     가진 돈 : %d 원\n", wallet);
+            break;
+        case 2:
+            wallet += 10000;
+            printf("구매가 완료 되었습니다.");
+            printf("     가진 돈 : %d 원\n", wallet);
+            break;
+        case 3:
+            wallet += 12800;
+            printf("구매가 완료 되었습니다.");
+            printf("     가진 돈 : %d 원\n", wallet);
+            break;
+        case 4:
+            wallet += 32500;
+            printf("구매가 완료 되었습니다.");
+            printf("     가진 돈 : %d 원\n", wallet);
+            break;
+        case 5:
+            wallet += 65000;
+            printf("구매가 완료 되었습니다.");
+            printf("     가진 돈 : %d 원\n", wallet);
+            break;
+        case 6:
+            wallet += 100000;
+            printf("구매가 완료 되었습니다.");
+            printf("     가진 돈 : %d 원\n", wallet);
+            break;
+        case 7:
+            break;
+        default:
+            maingame();
+            break;
+    }
+    return 0;
+}
+
 int maingame()
 {       
         system("@cls||clear");
@@ -153,7 +215,7 @@ int maingame()
         printf("   < 성공확률 : %d %% >\n", Num);
         printf("-------------------------------\n");
         printf("     1.집 구매      (- %d 원)\n", buy);
-        printf("     2.거지로 살기  (게임종료)\n");
+        printf("     2.과금 하기  \n");
         printf("     3.집 판매      (+ %d 원)\n", sell);
         printf("     4.가구 구매     \n");
         printf("     5.저장하기     (처음부터다시)\n");
@@ -198,11 +260,7 @@ int maingame()
             break;
 
             case 2:
-                choice = 2;
-                // 포기를 할 경우 프로그램 종료
-                printf("\n         어 나가~\n");
-                Isgame = 0;
-                return -1;
+                Cash();
                 break;
 
             case 3:
