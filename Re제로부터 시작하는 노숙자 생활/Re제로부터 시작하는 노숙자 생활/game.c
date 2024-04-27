@@ -355,7 +355,6 @@ int main(void)
 void SellFurniture(int furnitureNum)
 {
     furnitureAvailable[furnitureNum] = false;
-    wallet += sell;
     printf("'%d'번 가구가 판매되었습니다.\n", furnitureNum + 1);
 }
 
