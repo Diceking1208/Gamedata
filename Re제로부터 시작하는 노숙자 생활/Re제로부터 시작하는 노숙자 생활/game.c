@@ -18,6 +18,7 @@ int furnitureBuy = 0;
 int buyMoney = 0;                       //가구 가격
 int buy = 0;                            // 집 구매
 int sell = 0;                           // 집 팔때
+int sellbuy = 0;
 int wallet = 30000;                     // 현재 가지고 있는 금액
 char* house[] = { "서울역 노숙","반지하원룸","벌레 나오는 원룸", "좁은 원룸","적당한 원룸","넓은 원룸","벌레 가끔 나오는 투룸","층간소음 지리는 투룸","변기 잘 막히는 투룸","적당한 투룸","쩌는 투룸","걍 아파트","그냥 좋은 아파트","멋있는 아파트","호화로운 아파트","마당있는 단독주택","시그니엘" };
 int housePrice[] = { 0, 2000, 4000, 6000, 8000, 10000, 12000, 14000, 16000, 18000, 20000, 22000, 24000, 26000, 28000, 30000, 33000, 36000 };// 가구 판매할때는 집값 변동하게 하려고 이렇게 함
@@ -52,11 +53,11 @@ void PostUser()
     time_t now = time(NULL);
     struct tm* local_time = localtime(&now);
 
-    sprintf_s(command, sizeof(command), "curl -d \"{\\\"플레이어ID\\\":\\\"%d\\\",\\\"접속일시\\\":\\\"%d월 %d일\\\",\\\"소지금\\\":%d,\\\"현재단계\\\":%d,\\\"도전단계\\\":%d,\\\"선택\\\":\\\"%d\\\",\\\"성공여부\\\":%s,\\\"구매가구\\\":\\\"%d\\\",\\\"집값\\\":%d,\\\"집판매\\\":%s,\\\"충전금액\\\":%d,\\\"시간\\\":\\\"%d:%d:%d\\\"}\" https://script.google.com/macros/s/AKfycbx_aUWeYUHTTq_5b4nUyTOp6w_QcCObZCMlcKs_74iQVAs-t5iTQ7F4Un0AReH_qmP8Sg/exec",
-        userid, local_time->tm_mon + 1, local_time->tm_mday + 1, wallet, nowlevel, futurelevel, choice, tnf ? "true" : "false", furnitureNum, sell + buyMoney, sellHome ? "true" : "false", charge, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
+    sprintf_s(command, sizeof(command), "curl -d \"{\\\"플레이어ID\\\":\\\"%d\\\",\\\"접속일시\\\":\\\"%d월 %d일\\\",\\\"소지금\\\":%d,\\\"현재단계\\\":%d,\\\"도전단계\\\":%d,\\\"선택\\\":\\\"%d\\\",\\\"성공여부\\\":%s,\\\"구매가구\\\":\\\"%d\\\",\\\"집판매\\\":%s,\\\"충전금액\\\":%d,\\\"시간\\\":\\\"%d:%d:%d\\\"}\"https://script.google.com/a/macros/yuhan.ac.kr/s/AKfycbyxZA1xowJI0khEVELcOTpyHIrOIHhefoZOpjlP3x60j0N8peZnKxMJb6wSuu10PWDZMQ/exec",
+        userid, local_time->tm_mon + 1, local_time->tm_mday + 1, wallet, nowlevel, futurelevel, choice, tnf ? "true" : "false", furnitureNum, sellHome ? "true" : "false", charge, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
     system(command);
 }
-
+//\\\"집값\\\":%d,sell + buyMoney,
 int main(void)
 {
     time_t timer = time(NULL);
@@ -634,10 +635,10 @@ int maingame()
         }
         if (wallet >= 1)
         {
-            randNum = rand() % 100 + 1;
+            randNum = rand() % 101 ;
 
             // 추출한 랜덤 값이 성공확률 보다 작으면 성공
-            if (randNum < Num) {
+            if (randNum <= Num) {
                 sellHome = false;
                 tnf = true;
                 // 성공화면 출력
