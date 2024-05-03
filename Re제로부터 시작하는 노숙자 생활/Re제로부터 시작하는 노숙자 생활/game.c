@@ -46,9 +46,21 @@ sell + buyMoney  현재 집값
 sellHome         집 판매 여부
 */
 
+void PostUser()
+{
+    char command[2048];
+    time_t now = time(NULL);
+    struct tm* local_time = localtime(&now);
+
+    sprintf_s(command, sizeof(command), "curl -d \"{\\\"플레이어ID\\\":\\\"%d\\\",\\\"접속일시\\\":\\\"%d월 %d일\\\",\\\"소지금\\\":%d,\\\"현재단계\\\":%d,\\\"도전단계\\\":%d,\\\"선택\\\":\\\"%d\\\",\\\"성공여부\\\":%s,\\\"구매가구\\\":\\\"%d\\\",\\\"집값\\\":%d,\\\"집판매\\\":%s,\\\"충전금액\\\":%d,\\\"시간\\\":\\\"%d:%d:%d\\\"}\" https://script.google.com/macros/s/AKfycbx_aUWeYUHTTq_5b4nUyTOp6w_QcCObZCMlcKs_74iQVAs-t5iTQ7F4Un0AReH_qmP8Sg/exec",
+        userid, local_time->tm_mon + 1, local_time->tm_mday + 1, wallet, nowlevel, futurelevel, choice, tnf ? "true" : "false", furnitureNum, sell + buyMoney, sellHome ? "true" : "false", charge, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
+    system(command);
+}
+
 int main(void)
 {
-
+    time_t timer = time(NULL);
+    t = localtime(&timer);
     srand((unsigned int)time(NULL));
     login();
     while (Isgame == 1)
@@ -622,7 +634,7 @@ int maingame()
         }
         if (wallet >= 1)
         {
-            randNum = rand() % 100;
+            randNum = rand() % 100 + 1;
 
             // 추출한 랜덤 값이 성공확률 보다 작으면 성공
             if (randNum < Num) {
@@ -702,7 +714,7 @@ int maingame()
         }
         break;
     }
-
+    PostUser();
 }
 
 int login()
