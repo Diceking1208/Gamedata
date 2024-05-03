@@ -1,0 +1,91 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "반환 값이 무시되었습니다. '_getch'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/Gamedata/Re제로부터 시작하는 노숙자 생활/Re제로부터 시작하는 노숙자 생활/game.c"
+                },
+                "region": {
+                  "startLine": 399,
+                  "startColumn": 9
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "main",
+                  "decoratedName": "main",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6271",
+          "message": {
+            "text": "추가 인수가 'printf'에 전달되었습니다."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/Gamedata/Re제로부터 시작하는 노숙자 생활/Re제로부터 시작하는 노숙자 생활/game.c"
+                },
+                "region": {
+                  "startLine": 723,
+                  "startColumn": 5,
+                  "endLine": 723,
+                  "endColumn": 41
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "login",
+                  "decoratedName": "login",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.39.33523.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///D:/Gamedata/Re제로부터 시작하는 노숙자 생활/Re제로부터 시작하는 노숙자 생활/game.c"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "47fad6d3e0bd31aa23da17be58684e745aa1a4dd39855eac3e73cd3b0f6d93a0"
+          }
+        }
+      ]
+    }
+  ]
+}
