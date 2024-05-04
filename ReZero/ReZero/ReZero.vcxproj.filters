@@ -18,5 +18,16 @@
     <ClCompile Include="game.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="UI.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UIon.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Re.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

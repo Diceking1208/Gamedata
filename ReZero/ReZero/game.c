@@ -1,11 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS  // sprintf_s 함수를 사용하기 위해 경고 무시
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
-#include <conio.h>
-#include <stdbool.h>
-#define MAX_FURNITURE 4
+#include "Re.h"
 
 int userid = 0;
 int Isgame = 1;
@@ -53,7 +46,7 @@ void PostUser()
     struct tm* local_time = localtime(&now);
 
     sprintf_s(command, sizeof(command), "curl -d \"{\\\"접속신호\\\":\\\"%s\\\",\\\"플레이어ID\\\":\\\"%d\\\",\\\"접속일시\\\":\\\"%d월 %d일\\\",\\\"소지금\\\":%d,\\\"현재단계\\\":%d,\\\"도전단계\\\":%d,\\\"선택\\\":\\\"%d\\\",\\\"성공여부\\\":\\\"%s\\\", \\\"구매가구\\\":\\\"%d\\\",\\\"집값\\\":%d,\\\"집판매\\\":\\\"%s\\\",\\\"충전금액\\\":%d,\\\"시간\\\":\\\"%d:%d:%d\\\"}\" https://script.google.com/macros/s/AKfycbx_pVfz6yAuDK_Dr4qOEW__PW5_J-TrjDWh3JetRGKZvyxEJwAi1YxgzoA8rJFpENBh/exec",
-        sign ? "sign" : " ", userid, local_time->tm_mon + 1, local_time->tm_mday + 1, wallet, nowlevel, futurelevel, choice, tnf ? "success" : "fail", furnitureNum, sell + buyMoney, sellHome ? "Sell" : " ", charge, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
+        sign ? "sign" : " ", userid, local_time->tm_mon + 1, local_time->tm_mday , wallet, nowlevel, futurelevel, choice, tnf ? "success" : "fail", furnitureNum, sell + buyMoney, sellHome ? "Sell" : " ", charge, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
     system(command);
 }
 
@@ -620,10 +613,13 @@ void Cash()
 
 int maingame()
 {
+
     charge = 0;
     furnitureNum = 0;
 
     system("@cls||clear");
+    UIChange();
+    printf("\n");
     if (wallet <= 0)
     {
         wallet = 0;
@@ -747,8 +743,8 @@ int maingame()
 int login()
 {
     system("@cls||clear");
-    printf("      ♥ ♥ 플레이어님 방가방가 티비티비 ♥ ♥");
-    printf("\n\n\n\033[0;32m   ∧∧              로 그 인\n\033[0;32m\n");
+    loginUI();
+    printf("\n\033[0;33m   ∧∧              로 그 인\n\033[0;33m\n");
     printf("　(oωo)---------------------------------------\n");
     printf("＿(_つ/￣￣￣/＿ \n");
     printf("　 ＼/　　　/    학번을 입력해주세Yo \n ");
