@@ -649,10 +649,10 @@ int maingame()
         }
         if (wallet >= 1)
         {
-            randNum = rand() % 100 + 1;
+            randNum = rand() % 101;
 
             // 추출한 랜덤 값이 성공확률 보다 작으면 성공
-            if (randNum < Num) {
+            if (randNum <= Num) {
                 sellHome = false;
                 tnf = true;
                 // 성공화면 출력
