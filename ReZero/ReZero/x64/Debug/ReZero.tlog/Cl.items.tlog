@@ -1,3 +1,9 @@
-D:\Gamedata\ReZero\ReZero\game.c;D:\Gamedata\ReZero\ReZero\x64\Debug\game.obj
-D:\Gamedata\ReZero\ReZero\UI.c;D:\Gamedata\ReZero\ReZero\x64\Debug\UI.obj
-D:\Gamedata\ReZero\ReZero\UIon.c;D:\Gamedata\ReZero\ReZero\x64\Debug\UIon.obj
+<<<<<<< HEAD
+C:\gm\ReZero\ReZero\game.c;C:\gm\ReZero\ReZero\x64\Debug\game.obj
+C:\gm\ReZero\ReZero\UI.c;C:\gm\ReZero\ReZero\x64\Debug\UI.obj
+C:\gm\ReZero\ReZero\UIon.c;C:\gm\ReZero\ReZero\x64\Debug\UIon.obj
+=======
+D:\minseo\ReZero\ReZero\game.c;D:\minseo\ReZero\ReZero\x64\Debug\game.obj
+D:\minseo\ReZero\ReZero\UI.c;D:\minseo\ReZero\ReZero\x64\Debug\UI.obj
+D:\minseo\ReZero\ReZero\UIon.c;D:\minseo\ReZero\ReZero\x64\Debug\UIon.obj
+>>>>>>> 76f656fde3b7b0840f7b0119d00c601d484775c6

@@ -17,6 +17,7 @@ int housePrice[] = { 0, 2000, 4000, 6000, 8000, 10000, 12000, 14000, 16000, 1800
 int CashBuy = 0;
 int nowlevel = 0;
 int futurelevel = 0;
+int nextLog = 0;
 char datatime[200];
 char datadate[200];
 struct tm* t;
@@ -26,6 +27,8 @@ bool tnf = true;
 bool furnitureAvailable[MAX_FURNITURE] = { true, true, true, true };// 가구 판매 가능 판단 
 bool sellHome = false;
 bool sign = true;
+
+
 //데이터 로그에 들어가는 변수
 /*
 userid           유저 학번
@@ -37,6 +40,7 @@ tnf              강화 성공여부
 furnitureNum     구매한 가구
 sell + buyMoney  현재 집값
 sellHome         집 판매 여부
+nextLog          로그
 */
 
 void PostUser()
@@ -45,8 +49,8 @@ void PostUser()
     time_t now = time(NULL);
     struct tm* local_time = localtime(&now);
 
-    sprintf_s(command, sizeof(command), "curl -d \"{\\\"접속신호\\\":\\\"%s\\\",\\\"플레이어ID\\\":\\\"%d\\\",\\\"접속일시\\\":\\\"%d월 %d일\\\",\\\"소지금\\\":%d,\\\"현재단계\\\":%d,\\\"도전단계\\\":%d,\\\"선택\\\":\\\"%d\\\",\\\"성공여부\\\":\\\"%s\\\", \\\"구매가구\\\":\\\"%d\\\",\\\"집값\\\":%d,\\\"집판매\\\":\\\"%s\\\",\\\"충전금액\\\":%d,\\\"시간\\\":\\\"%d:%d:%d\\\"}\" https://script.google.com/macros/s/AKfycbx_pVfz6yAuDK_Dr4qOEW__PW5_J-TrjDWh3JetRGKZvyxEJwAi1YxgzoA8rJFpENBh/exec",
-        sign ? "sign" : " ", userid, local_time->tm_mon + 1, local_time->tm_mday , wallet, nowlevel, futurelevel, choice, tnf ? "success" : "fail", furnitureNum, sell + buyMoney, sellHome ? "Sell" : " ", charge, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
+    sprintf_s(command, sizeof(command), "curl -d \"{\\\"로그\\\":\\\"%d\\\",\\\"접속신호\\\":\\\"%s\\\",\\\"플레이어ID\\\":\\\"%d\\\",\\\"접속일시\\\":\\\"%d월 %d일\\\",\\\"소지금\\\":%d,\\\"현재단계\\\":%d,\\\"도전단계\\\":%d,\\\"선택\\\":\\\"%d\\\",\\\"성공여부\\\":\\\"%s\\\", \\\"구매가구\\\":\\\"%d\\\",\\\"집값\\\":%d,\\\"집판매\\\":\\\"%s\\\",\\\"충전금액\\\":%d,\\\"시간\\\":\\\"%d:%d:%d\\\"}\" https://script.google.com/macros/s/AKfycbz9Flo5zi854uAt_c_kXR_AVtVbeDkEin83yXD7XX4zIgZY1njBZ9E3eHJOflXY2wc/exec",
+        nextLog, sign ? "sign" : " ", userid, local_time->tm_mon + 1, local_time->tm_mday , wallet, nowlevel, futurelevel, choice, tnf ? "success" : "fail", furnitureNum, sell + buyMoney, sellHome ? "Sell" : " ", charge, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
     system(command);
 }
 
@@ -61,15 +65,15 @@ int main(void)
     {
         if (sign==true)
         {
-            PostUser();
             login();
+            PostUser();
             sign = false;
         }
         system("@cls||clear");
         switch (level)
         {
         case 0:  Num = 100; buy = 2000;  sell = 0;  break;
-        case 1:  Num = 95; buy = 4000;
+        case 1:  Num = 100; buy = 4000;
             if (furnitureBuy) {
                 switch (furnitureBuy)
                 {
@@ -90,7 +94,7 @@ int main(void)
                 }
             }
             else sell += 10000; break;// 이거 swtich 함수 따로 만들어서 넣었는데 계속 오류나서 일일히 넣음 ㅜㅜ
-        case 2:  Num = 90; buy = 6000; if (furnitureBuy) {
+        case 2:  Num = 99; buy = 6000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
             case 1:
@@ -110,7 +114,7 @@ int main(void)
             }
         }
               else  sell += 20000; break;
-        case 3:  Num = 85; buy = 8000; if (furnitureBuy) {
+        case 3:  Num = 97; buy = 8000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
             case 1:
@@ -130,7 +134,7 @@ int main(void)
             }
         }
               else  sell = 25000; break;
-        case 4:  Num = 80; buy = 10000; if (furnitureBuy) {
+        case 4:  Num = 95; buy = 10000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
             case 1:
@@ -150,7 +154,7 @@ int main(void)
             }
         }
               else sell = 30000; break;
-        case 5:  Num = 75; buy = 12000; if (furnitureBuy) {
+        case 5:  Num = 93; buy = 12000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
             case 1:
@@ -170,7 +174,7 @@ int main(void)
             }
         }
               else sell += 35000; break;
-        case 6:  Num = 70; buy = 14000; if (furnitureBuy) {
+        case 6:  Num = 91; buy = 14000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
             case 1:
@@ -190,7 +194,7 @@ int main(void)
             }
         }
               else sell += 40000; break;
-        case 7:  Num = 65; buy = 16000; if (furnitureBuy) {
+        case 7:  Num = 88; buy = 16000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
             case 1:
@@ -210,7 +214,7 @@ int main(void)
             }
         }
               else sell += 45000; break;
-        case 8:  Num = 60; buy = 18000; if (furnitureBuy) {
+        case 8:  Num = 85; buy = 18000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
             case 1:
@@ -230,7 +234,7 @@ int main(void)
             }
         }
               else sell += 50000; break;
-        case 9:  Num = 55; buy = 20000; if (furnitureBuy) {
+        case 9:  Num = 82; buy = 20000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
             case 1:
@@ -250,7 +254,7 @@ int main(void)
             }
         }
               else sell += 55000; break;
-        case 10: Num = 50; buy = 22000; if (furnitureBuy) {
+        case 10: Num = 79; buy = 22000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
             case 1:
@@ -270,7 +274,7 @@ int main(void)
             }
         }
                else sell += 60000; break;
-        case 11: Num = 45; buy = 24000; if (furnitureBuy) {
+        case 11: Num = 74; buy = 24000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
             case 1:
@@ -290,7 +294,7 @@ int main(void)
             }
         }
                else sell += 65000; break;
-        case 12: Num = 40; buy = 26000; if (furnitureBuy) {
+        case 12: Num = 69; buy = 26000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
             case 1:
@@ -310,7 +314,7 @@ int main(void)
             }
         }
                else sell += 70000; break;
-        case 13: Num = 35; buy = 28000; if (furnitureBuy) {
+        case 13: Num = 64; buy = 28000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
             case 1:
@@ -330,7 +334,7 @@ int main(void)
             }
         }
                else sell += 75000; break;
-        case 14: Num = 30; buy = 30000; if (furnitureBuy) {
+        case 14: Num = 60; buy = 30000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
             case 1:
@@ -350,7 +354,7 @@ int main(void)
             }
         }
                else sell += 80000; break;
-        case 15: Num = 25; buy = 33000; if (furnitureBuy) {
+        case 15: Num = 55; buy = 33000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
             case 1:
@@ -370,7 +374,7 @@ int main(void)
             }
         }
                else sell += 85000; break;
-        case 16: Num = 20; buy = 36000; if (furnitureBuy) {
+        case 16: Num = 50; buy = 36000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
             case 1:
@@ -545,11 +549,11 @@ void Cash()
     printf("       < 충전을 하면 바로 적용됩니다.  >\n");
     printf("-------------------------------------------\n");
     printf("      \033[0;36m 결제금액      게임머니\033[0m \n\n");
-    printf("    1. 5,000원    (+ 5,000 원) \n");//100
-    printf("    2. 7,800원    (+ 8,000 원)\n"); //97
-    printf("    3. 12,200원   (+ 12,800 원)\n");//95
-    printf("    4. 20,900원   (+ 22,500 원)\n");//93
-    printf("    5. 35,200원   (+ 40,000 원)\n "); //88
+    printf("     1. 5,000원    (+ 5,000 원) \n");//100
+    printf("     2. 7,800원    (+ 8,000 원)\n"); //97
+    printf("     3. 12,200원   (+ 12,800 원)\n");//95
+    printf("     4. 20,900원   (+ 22,500 원)\n");//93
+    printf("     5. 35,200원   (+ 40,000 원)\n "); //88
     printf("    6. 40,000원   (+ 50,000원)\n "); //80
     printf("    7.게임으로 돌아가기 \n ");
     printf("------------------------------------------\n");
@@ -630,7 +634,7 @@ int maingame()
     printf("        \033[1;34m< 성공확률 : %d %% >\n\033[0m", Num);
     printf(" 집을 강화 하시겠습니까 ? \n\n");
     printf("\033[0m------------------------------------------\n");
-    printf("\033[0;32m      1.집 구매      (- %d 원)\n", buy);
+    printf("\033[0;32m     1.집 구매      (- %d 원)\n", buy);
     printf("     2.게임머니 충전소  \n");
     printf("     3.집 판매      (+ %d 원)\n", sell);
     printf("     4.가구 구매     \n");
@@ -744,7 +748,7 @@ int login()
 {
     system("@cls||clear");
     loginUI();
-    printf("\n\033[0;33m   ∧∧              로 그 인\n\033[0;33m\n");
+    printf("\n\033[0;33m   ∧∧              로 그 인\n\033[0;33m");
     printf("　(oωo)---------------------------------------\n");
     printf("＿(_つ/￣￣￣/＿ \n");
     printf("　 ＼/　　　/    학번을 입력해주세Yo \n ");

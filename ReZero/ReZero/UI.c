@@ -682,16 +682,16 @@ void level4()
 
 void level0()  //ㅅㅇㅇ
 {
-    printf("\x1b[43m");
-    printf("     \n");
-    printf("     \n");
-    printf("\x1b[42m");
-    printf("     \n");
-    printf("     \n");
-    printf("     \n");
-    printf("     \n");
-    printf("     \n");
-    printf("     \n");
+    printf("\x1b[44m\x1b[37m              \n");
+    printf("    서울역    \n");
+    printf("              \n");
+    printf("\x1b[0m"); // 색상 리셋
+
+    // 흰색 배경 라인 출력
+    printf("\x1b[47m\x1b[30m              \n");
+    printf("              \n");
+    printf("              \n");
+    printf("\x1b[0m"); // 색상 리셋
 
     printf("\x1b[0m");
 }
