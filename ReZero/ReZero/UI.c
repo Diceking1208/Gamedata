@@ -478,12 +478,16 @@ void level9()
     printf("\x1b[0m");
 }
 
-void level8()
+void level8()//ㅂㄱㅈㅁㅎㄴㅌㄹ
 {
     printf("\x1b[47m");
     printf("                   \n");
+    printf("\x1b[47m");
+    printf("                   \n");
+
     printf("\x1b[45m");
     printf("                   \n");
+    
     printf("   ");
     printf("\x1b[0m");
     printf("   ");
@@ -494,6 +498,7 @@ void level8()
     printf("\x1b[45m");
     printf("    \n");
     printf("                   \n");
+    
     printf("   ");
     printf("\x1b[0m");
     printf("   ");
@@ -503,6 +508,7 @@ void level8()
     printf("   ");
     printf("\x1b[45m");
     printf("    \n");
+    printf("                   \n");
     printf("       ");
     printf("\x1b[43m");
     printf("     ");
@@ -522,12 +528,28 @@ void level8()
     printf("\x1b[0m");
 }
 
-void level7()
+void level7() //ㅊㄳㅇ ㅈㄹㄴ ㅌㄹ
 {
     printf("\x1b[47m");
     printf("                   \n");
+    printf("\x1b[47m");
+    printf("                   \n");
+
     printf("\x1b[42m");
     printf("                   \n");
+    
+    printf("   ");
+    printf("\x1b[0m");
+    printf("   ");
+    printf("\x1b[42m");
+    printf("      ");
+    printf("\x1b[0m");
+    printf("   ");
+    printf("\x1b[42m");
+    printf("    \n");
+    
+    printf("                   \n");
+    
     printf("   ");
     printf("\x1b[0m");
     printf("   ");
@@ -538,15 +560,6 @@ void level7()
     printf("\x1b[42m");
     printf("    \n");
     printf("                   \n");
-    printf("   ");
-    printf("\x1b[0m");
-    printf("   ");
-    printf("\x1b[42m");
-    printf("      ");
-    printf("\x1b[0m");
-    printf("   ");
-    printf("\x1b[42m");
-    printf("    \n");
     printf("       ");
     printf("\x1b[43m");
     printf("     ");
@@ -570,8 +583,10 @@ void level6()
 {
     printf("\x1b[47m");
     printf("                   \n");
+
     printf("\x1b[41m");
     printf("                   \n");
+
     printf("   ");
     printf("\x1b[0m");
     printf("   ");
@@ -591,16 +606,20 @@ void level6()
     printf("   ");
     printf("\x1b[41m");
     printf("    \n");
+    printf("\x1b[41m");
+    printf("    \n");
     printf("       ");
     printf("\x1b[43m");
     printf("     ");
     printf("\x1b[41m");
     printf("       \n");
+
     printf("       ");
     printf("\x1b[43m");
     printf("     ");
     printf("\x1b[41m");
     printf("       \n");
+
     printf("       ");
     printf("\x1b[43m");
     printf("     ");
@@ -610,44 +629,53 @@ void level6()
     printf("\x1b[0m");
 }
 
-void level5()
+void level5()// ㄴㅇ ㅇㄹ
 {
     printf("\x1b[47m");
-    printf("                   \n");
+    printf("                         \n");
+    printf("\x1b[47m");
+    printf("                         \n");
+
     printf("\x1b[46m");
-    printf("                   \n");
-    printf("   ");
+    printf("                         \n");
+    
+    printf("     ");
     printf("\x1b[0m");
     printf("   ");
     printf("\x1b[46m");
-    printf("      ");
+    printf("         ");
     printf("\x1b[0m");
     printf("   ");
     printf("\x1b[46m");
-    printf("    \n");
-    printf("                   \n");
-    printf("       ");
+    printf("     \n");
+
+    printf("                         \n");
+    printf("          ");
     printf("\x1b[43m");
     printf("     ");
     printf("\x1b[46m");
-    printf("       \n");
-    printf("       ");
+    printf("          \n");
+    printf("          ");
     printf("\x1b[43m");
     printf("     ");
     printf("\x1b[46m");
-    printf("       \n");
-    printf("       ");
+    printf("          \n");
+    printf("          ");
     printf("\x1b[43m");
     printf("     ");
     printf("\x1b[46m");
-    printf("       \n");
+    printf("          \n");
 
     printf("\x1b[0m");
 }
 
-void level4()
+void level4()//ㅈㄷㅎ ㅇㄹ
 {
     printf("\x1b[47m");
+    printf("                   \n");
+    printf("\x1b[47m");
+    printf("                   \n");
+    printf("\x1b[44m");
     printf("                   \n");
     printf("\x1b[44m");
     printf("                   \n");
@@ -682,38 +710,31 @@ void level4()
 
 void level0()  //ㅅㅇㅇ
 {
-    printf("\x1b[43m");
-    printf("     \n");
-    printf("     \n");
-    printf("\x1b[42m");
-    printf("     \n");
-    printf("     \n");
-    printf("     \n");
-    printf("     \n");
-    printf("     \n");
-    printf("     \n");
+    // 파란색 블럭 가운데에 "서울역" 출력
+    printf("\x1b[44m\x1b[37m              \n");
+    printf("    서울역    \n");
+    printf("              \n");
+    printf("\x1b[0m"); // 색상 리셋
+
+    printf("\x1b[47m\x1b[30m              \n");
+    printf("              \n");
+    printf("              \n");
+    printf("\x1b[0m"); // 색상 리셋
 
     printf("\x1b[0m");
 }
 
 void level1()  //ㅂㅈㅎ
 {
-    printf("\x1b[47m");
-    printf("                   \n");
-    printf("\x1b[45m");
-    printf("                   \n");
-    printf("   ");
-    printf("\x1b[0m");
-    printf("   ");
-    printf("\x1b[45m");
-    printf("      ");
-    printf("\x1b[0m");
-    printf("   ");
-    printf("\x1b[45m");
-    printf("    \n");
-    printf("\x1b[42m");
-    printf("                   \n");
-    printf("\x1b[0m");
+    // 하늘 출력
+    printf("\x1b[46m                         \n");
+    printf("\x1b[46m                         \n");
+    printf("\x1b[46m                         \n");
+    printf("\x1b[46m                         \n");
+    printf("\x1b[100m                         \n");
+    printf("\x1b[100m         \x1b[40m       \x1b[100m         \n");
+    printf("\x1b[100m         \x1b[40m       \x1b[100m         \n");
+    printf("\x1b[100m                         \n");
 }
 
 void level2() //ㅂㄹㄴㅇㄴㅇㄹ
@@ -722,6 +743,8 @@ void level2() //ㅂㄹㄴㅇㄴㅇㄹ
     printf("                   \n");
     printf("\x1b[41m");
     printf("                   \n");
+    printf("\x1b[41m");
+    printf("                   \n");
     printf("   ");
     printf("\x1b[0m");
     printf("   ");
@@ -731,7 +754,16 @@ void level2() //ㅂㄹㄴㅇㄴㅇㄹ
     printf("   ");
     printf("\x1b[41m");
     printf("    \n");
-    printf("                   \n");
+    printf("   ");
+    printf("\x1b[0m");
+    printf("   ");
+    printf("\x1b[41m");
+    printf("      ");
+    printf("\x1b[0m");
+    printf("   ");
+    printf("\x1b[41m");
+    printf("    \n");
+    printf("                  \n");
     printf("       ");
     printf("\x1b[43m");
     printf("     ");
@@ -744,9 +776,9 @@ void level2() //ㅂㄹㄴㅇㄴㅇㄹ
     printf("       \n");
     printf("       ");
     printf("\x1b[43m");
-    printf("     ");
+    printf("    ");
     printf("\x1b[41m");
-    printf("       \n");
+    printf("     \n");
 
     printf("\x1b[0m");
 }

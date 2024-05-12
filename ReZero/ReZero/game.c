@@ -662,9 +662,9 @@ int maingame()
                 // 성공화면 출력
                 wallet -= buy;
                 printf("\n\n지갑 : %d 원\n\n", wallet);
-                printf("\033[0;32ml───────────────l\n\033[0m");
-                printf("\033[0;32ml♡♡Success♡♡l\n\033[0m");
-                printf("\033[0;32ml───────────────l\n\033[0m");
+                printf("\033[0;32ml───────────────────l\n\033[0m");
+                printf("\033[0;32ml  ♡♡Success♡♡  l\n\033[0m");
+                printf("\033[0;32ml───────────────────l\n\033[0m");
                 printf("\033[0;32m    ∧ ∧ ||\n\033[0m");
                 printf("\033[0;32m　 ( 'ω' ||\n\033[0m");
                 printf("\033[0;32m　 /　つ  Φ\n\033[0m");
@@ -748,7 +748,7 @@ int login()
 {
     system("@cls||clear");
     loginUI();
-    printf("\n\033[0;33m   ∧∧              로 그 인\n\033[0;33m\n");
+    printf("\n\033[0;33m   ∧∧              로 그 인\n\033[0;33m");
     printf("　(oωo)---------------------------------------\n");
     printf("＿(_つ/￣￣￣/＿ \n");
     printf("　 ＼/　　　/    학번을 입력해주세Yo \n ");

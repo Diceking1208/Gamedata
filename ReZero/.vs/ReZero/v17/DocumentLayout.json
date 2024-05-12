@@ -1,24 +1,24 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\GAMEDATA\\ReZero\\",
+  "WorkspaceRootPath": "D:\\game_data\\ReZero\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|D:\\GAMEDATA\\ReZero\\ReZero\\game.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|D:\\game_data\\ReZero\\ReZero\\game.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|solutionrelative:ReZero\\game.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|D:\\GAMEDATA\\ReZero\\ReZero\\UI.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|D:\\game_data\\ReZero\\ReZero\\UI.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|solutionrelative:ReZero\\UI.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|D:\\GAMEDATA\\ReZero\\ReZero\\Re.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|D:\\game_data\\ReZero\\ReZero\\Re.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|solutionrelative:ReZero\\Re.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\82109\\Downloads\\char.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|D:\\GAMEDATA\\ReZero\\ReZero\\UIon.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|D:\\game_data\\ReZero\\ReZero\\UIon.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|solutionrelative:ReZero\\UIon.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -29,17 +29,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "game.c",
-              "DocumentMoniker": "D:\\GAMEDATA\\ReZero\\ReZero\\game.c",
+              "DocumentMoniker": "D:\\game_data\\ReZero\\ReZero\\game.c",
               "RelativeDocumentMoniker": "ReZero\\game.c",
-              "ToolTip": "D:\\GAMEDATA\\ReZero\\ReZero\\game.c",
+              "ToolTip": "D:\\game_data\\ReZero\\ReZero\\game.c",
               "RelativeToolTip": "ReZero\\game.c",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABQAAAATAAAA",
+              "ViewState": "AQIAAHQBAAAAAAAAAAAAAIABAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-05-06T08:22:27.781Z",
               "EditorCaption": ""
@@ -48,14 +52,13 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "UIon.c",
-              "DocumentMoniker": "D:\\GAMEDATA\\ReZero\\ReZero\\UIon.c",
+              "DocumentMoniker": "D:\\game_data\\ReZero\\ReZero\\UIon.c",
               "RelativeDocumentMoniker": "ReZero\\UIon.c",
-              "ToolTip": "D:\\GAMEDATA\\ReZero\\ReZero\\UIon.c",
+              "ToolTip": "D:\\game_data\\ReZero\\ReZero\\UIon.c",
               "RelativeToolTip": "ReZero\\UIon.c",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAAAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-05-06T08:22:28.126Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-06T08:22:28.126Z"
             },
             {
               "$type": "Document",
@@ -70,27 +73,25 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Re.h",
-              "DocumentMoniker": "D:\\GAMEDATA\\ReZero\\ReZero\\Re.h",
+              "DocumentMoniker": "D:\\game_data\\ReZero\\ReZero\\Re.h",
               "RelativeDocumentMoniker": "ReZero\\Re.h",
-              "ToolTip": "D:\\GAMEDATA\\ReZero\\ReZero\\Re.h",
+              "ToolTip": "D:\\game_data\\ReZero\\ReZero\\Re.h",
               "RelativeToolTip": "ReZero\\Re.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-06T08:22:28.164Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-06T08:22:28.164Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "UI.c",
-              "DocumentMoniker": "D:\\GAMEDATA\\ReZero\\ReZero\\UI.c",
+              "DocumentMoniker": "D:\\game_data\\ReZero\\ReZero\\UI.c",
               "RelativeDocumentMoniker": "ReZero\\UI.c",
-              "ToolTip": "D:\\GAMEDATA\\ReZero\\ReZero\\UI.c",
+              "ToolTip": "D:\\game_data\\ReZero\\ReZero\\UI.c",
               "RelativeToolTip": "ReZero\\UI.c",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAALUCAAAWAAAA",
+              "ViewState": "AQIAAJ0BAAAAAAAAAAAqwP4BAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-05-06T08:22:28.164Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-06T08:22:28.164Z"
             }
           ]
         }
