@@ -1,5 +1,12 @@
 ﻿  game.c
+<<<<<<< HEAD
 D:\Gamedata\ReZero\ReZero\game.c(68,13): warning C4013: 'login'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
 D:\Gamedata\ReZero\ReZero\game.c(399,9): warning C4013: 'maingame'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
 D:\Gamedata\ReZero\ReZero\game.c(745,1): warning C4716: 'maingame': 값을 반환해야 합니다.
   ReZero.vcxproj -> D:\Gamedata\ReZero\x64\Debug\ReZero.exe
+=======
+C:\gm\ReZero\ReZero\game.c(68,13): warning C4013: 'login'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\gm\ReZero\ReZero\game.c(399,9): warning C4013: 'maingame'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\gm\ReZero\ReZero\game.c(745): warning C4716: 'maingame': 값을 반환해야 합니다.
+  ReZero.vcxproj -> C:\gm\ReZero\x64\Debug\ReZero.exe
+>>>>>>> 7f4b5dd3c0ebc16c2b9a63b4de9fe93f012cb8ff
