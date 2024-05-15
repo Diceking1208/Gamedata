@@ -1,7 +1,7 @@
 #include "Re.h"
 
 int userid = 0;
-int Isgame = 1;
+bool Isgame = true;
 int isTry = 0;
 int level = 0;
 int randNum = 0;
@@ -61,14 +61,36 @@ int main(void)
     t = localtime(&timer);
     srand((unsigned int)time(NULL));
     sign = true;
-    while (Isgame == 1)
+    while (Isgame)
     {
         if (sign)
         {
+            PostUser(); //플레이 하지 않아도 접속 신호 보내는 거임!! 순서 바꾸지 말아주세용용용
             login();
-            PostUser();
             sign = false;
         }
+        system("@cls||clear");
+        if (level == 16)
+        {
+            level16();
+            int replay;
+            printf("\x1b[43m");
+            printf("\n\033[1;35m **** 최고 레벨 달성을 축하한다능 %d 쨔응..!!! **** \n\n\n", userid);
+            Ending();
+            printf("           %d 의 선택은 ?  :", userid);
+            scanf_s("%d", &replay);
+
+            switch (replay)
+            {
+                case 1: level = 0;
+                    break;
+                case 2: Isgame = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+
         system("@cls||clear");
         switch (level)
         {
@@ -396,9 +418,12 @@ int main(void)
                else sell += 90000; break;
         default: Num = 100; buy = 2000; sell += 0;     break;
         }
-        maingame();
-        printf("\n계속하려면 아무 키나 누르십시오.\n");
-        _getch();
+        if (Isgame)
+        {
+            maingame();
+            printf("\n계속하려면 아무 키나 누르십시오.\n");
+            _getch();
+        }
     }
     return 0;
 }
@@ -416,6 +441,7 @@ void Store()
     printf("        인테리어 상점\n");
     printf("       < 오늘의 아이템  >\n");
     printf("-------------------------------\n");
+    printf("     0. 게임 화면으로 돌아가기 \n\n");
 
     for (int i = 0; i < MAX_FURNITURE; ++i) {
         if (furnitureAvailable[i]) {
@@ -530,8 +556,6 @@ void Store()
         else {
             printf("이미 판매된 가구입니다.\n");
         }
-        break;
-    case 5:
         break;
     default:
         maingame();
@@ -747,6 +771,7 @@ int maingame()
 int login()
 {
     system("@cls||clear");
+    printf("      ** 로그인시 숫자만 입력해주세요. **\n\n");
     loginUI();
     printf("\n\033[0;33m   ∧∧              로 그 인\n\033[0;33m");
     printf("　(oωo)---------------------------------------\n");
@@ -758,15 +783,15 @@ int login()
     switch (userid)
     {
         int input = 0;
-    case 99999:
-        wallet = 999999999;
-        printf(" 금액은 999,999,999원으로 시작됩니다. \n");
-        printf(" 시작할 레벨을 입력하세요 :  ");
-        scanf_s("%d", &input);
-        level = input;
-        break;
-    default: level = 0;
-        break;
+        case 99999:
+            wallet = 999999999;
+            printf(" 금액은 999,999,999원으로 시작됩니다. \n");
+            printf(" 시작할 레벨을 입력하세요 :  ");
+            scanf_s("%d", &input);
+            level = input;
+            break;
+        default: level = 0;
+            break;
     }
     return 0;
 }

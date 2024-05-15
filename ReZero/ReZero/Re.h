@@ -27,3 +27,4 @@ void level15();
 void level16();
 void loginUI();
 void UIChange();
+void Ending();
