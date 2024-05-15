@@ -1,12 +1,12 @@
 ﻿  game.c
-C:\gm\ReZero\ReZero\game.c(65,5): warning C4013: 'login'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\gm\ReZero\ReZero\game.c(396,9): warning C4013: 'maingame'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\gm\ReZero\ReZero\game.c(611,13): warning C4098: 'Cash': 'void' 함수에서 값을 반환하고 있습니다.
-C:\gm\ReZero\ReZero\game.c(737,41): warning C4474: 'printf' : 서식 문자열에 전달된 인수가 너무 많습니다.
-C:\gm\ReZero\ReZero\game.c(737,41): message : 자리 표시자 및 해당 매개 변수에는 variadic 인수가 0개 필요하지만 1개가 제공되었습니다.
+C:\gm\ReZero\ReZero\game.c(68,13): warning C4013: 'login'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\gm\ReZero\ReZero\game.c(399,9): warning C4013: 'maingame'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  UI.c
+  UIon.c
   코드를 생성하고 있습니다.
-  Previous IPDB not found, fall back to full compilation.
-C:\gm\ReZero\ReZero\game.c(732): warning C4716: 'maingame': 값을 반환해야 합니다.
-  All 17 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+C:\gm\ReZero\ReZero\game.c(745): warning C4716: 'maingame': 값을 반환해야 합니다.
+  35 of 36 functions (97.2%) were compiled, the rest were copied from previous compilation.
+    19 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
   ReZero.vcxproj -> C:\gm\ReZero\x64\Release\ReZero.exe

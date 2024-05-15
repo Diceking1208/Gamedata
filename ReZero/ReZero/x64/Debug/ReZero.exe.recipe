@@ -2,11 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-<<<<<<< HEAD
       <FullPath>C:\gm\ReZero\x64\Debug\ReZero.exe</FullPath>
-=======
-      <FullPath>D:\minseo\ReZero\x64\Debug\ReZero.exe</FullPath>
->>>>>>> 76f656fde3b7b0840f7b0119d00c601d484775c6
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
