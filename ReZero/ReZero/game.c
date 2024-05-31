@@ -11,7 +11,7 @@ int furnitureBuy = 0;
 int buyMoney = 0;                       //가구 가격
 int buy = 0;                            // 집 구매
 int sell = 0;                           // 집 팔때
-int wallet = 30000;                     // 현재 가지고 있는 금액
+int wallet = 200000;                     // 현재 가지고 있는 금액
 char* house[] = { "서울역 노숙","반지하원룸","벌레 나오는 원룸", "좁은 원룸","적당한 원룸","넓은 원룸","벌레 가끔 나오는 투룸","층간소음 지리는 투룸","변기 잘 막히는 투룸","적당한 투룸","쩌는 투룸","걍 아파트","그냥 좋은 아파트","멋있는 아파트","호화로운 아파트","마당있는 단독주택","시그니엘" };
 int housePrice[] = { 0, 2000, 4000, 6000, 8000, 10000, 12000, 14000, 16000, 18000, 20000, 22000, 24000, 26000, 28000, 30000, 33000, 36000 };// 가구 판매할때는 집값 변동하게 하려고 이렇게 함
 int CashBuy = 0;
@@ -115,7 +115,7 @@ int main(void)
                     break;
                 }
             }
-            else sell += 10000; break;// 이거 swtich 함수 따로 만들어서 넣었는데 계속 오류나서 일일히 넣음 ㅜㅜ
+            else sell = 10000; break;// 이거 swtich 함수 따로 만들어서 넣었는데 계속 오류나서 일일히 넣음 ㅜㅜ
         case 2:  Num = 90; buy = 6000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -135,7 +135,7 @@ int main(void)
                 break;
             }
         }
-              else  sell += 20000; break;
+              else  sell  = 20000; break;
         case 3:  Num = 85; buy = 8000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -195,7 +195,7 @@ int main(void)
                 break;
             }
         }
-              else sell += 35000; break;
+              else sell = 35000; break;
         case 6:  Num = 70; buy = 14000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -215,7 +215,7 @@ int main(void)
                 break;
             }
         }
-              else sell += 40000; break;
+              else sell = 40000; break;
         case 7:  Num = 65; buy = 16000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -235,7 +235,7 @@ int main(void)
                 break;
             }
         }
-              else sell += 45000; break;
+              else sell = 45000; break;
         case 8:  Num = 60; buy = 18000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -255,7 +255,7 @@ int main(void)
                 break;
             }
         }
-              else sell += 50000; break;
+              else sell = 50000; break;
         case 9:  Num = 55; buy = 20000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -275,7 +275,7 @@ int main(void)
                 break;
             }
         }
-              else sell += 55000; break;
+              else sell = 55000; break;
         case 10: Num = 50; buy = 22000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -295,7 +295,7 @@ int main(void)
                 break;
             }
         }
-               else sell += 60000; break;
+               else sell = 60000; break;
         case 11: Num = 45; buy = 24000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -315,7 +315,7 @@ int main(void)
                 break;
             }
         }
-               else sell += 65000; break;
+               else sell = 65000; break;
         case 12: Num = 40; buy = 26000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -335,7 +335,7 @@ int main(void)
                 break;
             }
         }
-               else sell += 70000; break;
+               else sell = 70000; break;
         case 13: Num = 35; buy = 28000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -355,7 +355,7 @@ int main(void)
                 break;
             }
         }
-               else sell += 75000; break;
+               else sell = 75000; break;
         case 14: Num = 30; buy = 30000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -375,7 +375,7 @@ int main(void)
                 break;
             }
         }
-               else sell += 80000; break;
+               else sell = 80000; break;
         case 15: Num = 25; buy = 33000; if (furnitureBuy) {
             switch (furnitureBuy)
             {
@@ -415,7 +415,7 @@ int main(void)
                 break;
             }
         }
-               else sell += 90000; break;
+               else sell = 90000; break;
         default: Num = 100; buy = 2000; sell += 0;     break;
         }
         if (Isgame)
