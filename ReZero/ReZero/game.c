@@ -1,7 +1,7 @@
 #include "Re.h"
 
 int userid = 0;
-int Isgame = 1;
+bool Isgame = true;
 int isTry = 0;
 int level = 0;
 int randNum = 0;
@@ -11,7 +11,7 @@ int furnitureBuy = 0;
 int buyMoney = 0;                       //가구 가격
 int buy = 0;                            // 집 구매
 int sell = 0;                           // 집 팔때
-int wallet = 30000;                     // 현재 가지고 있는 금액
+int wallet = 200000;                     // 현재 가지고 있는 금액
 char* house[] = { "서울역 노숙","반지하원룸","벌레 나오는 원룸", "좁은 원룸","적당한 원룸","넓은 원룸","벌레 가끔 나오는 투룸","층간소음 지리는 투룸","변기 잘 막히는 투룸","적당한 투룸","쩌는 투룸","걍 아파트","그냥 좋은 아파트","멋있는 아파트","호화로운 아파트","마당있는 단독주택","시그니엘" };
 int housePrice[] = { 0, 2000, 4000, 6000, 8000, 10000, 12000, 14000, 16000, 18000, 20000, 22000, 24000, 26000, 28000, 30000, 33000, 36000 };// 가구 판매할때는 집값 변동하게 하려고 이렇게 함
 int CashBuy = 0;
@@ -23,6 +23,7 @@ char datadate[200];
 struct tm* t;
 int choice = 0; //선택지 저장
 int charge = 0; //충전금액
+int previousSell = 0;
 bool tnf = true;
 bool furnitureAvailable[MAX_FURNITURE] = { true, true, true, true };// 가구 판매 가능 판단 
 bool sellHome = false;
@@ -50,7 +51,7 @@ void PostUser()
     struct tm* local_time = localtime(&now);
 
     sprintf_s(command, sizeof(command), "curl -s -d \"{\\\"로그\\\":\\\"%d\\\",\\\"접속신호\\\":\\\"%s\\\",\\\"플레이어ID\\\":\\\"%d\\\",\\\"접속일시\\\":\\\"%d월 %d일\\\",\\\"소지금\\\":%d,\\\"현재단계\\\":%d,\\\"도전단계\\\":%d,\\\"선택\\\":\\\"%d\\\",\\\"성공여부\\\":\\\"%s\\\", \\\"구매가구\\\":\\\"%d\\\",\\\"집값\\\":%d,\\\"집판매\\\":\\\"%s\\\",\\\"충전금액\\\":%d,\\\"시간\\\":\\\"%d:%d:%d\\\"}\" https://script.google.com/macros/s/AKfycbwqtqL36h1VSfxrfvMuBSWWHOoJQsHMDR2afAXNbmFp5Uiafz3e1ZnwX-vcjDjc5KVS/exec  > NUL 2>&1",
-        nextLog, sign ? "sign" : " ", userid, local_time->tm_mon + 1, local_time->tm_mday , wallet, nowlevel, futurelevel, choice, tnf ? "success" : "fail", furnitureNum, sell + buyMoney, sellHome ? "Sell" : " ", charge, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
+        nextLog, sign ? "sign" : " ", userid, local_time->tm_mon + 1, local_time->tm_mday, wallet, nowlevel, futurelevel, choice, tnf ? "success" : "fail", furnitureNum, sell + buyMoney, sellHome ? "Sell" : " ", charge, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
     system(command);
 }
 
@@ -61,344 +62,587 @@ int main(void)
     t = localtime(&timer);
     srand((unsigned int)time(NULL));
     sign = true;
-    while (Isgame == 1)
+    while (Isgame)
     {
         if (sign)
         {
+           // PostUser(); //플레이 하지 않아도 접속 신호 보내는 거임!! 순서 바꾸지 말아주세용용용
             login();
-            PostUser();
             sign = false;
         }
         system("@cls||clear");
+        if (level == 16)
+        {
+            level16();
+            int replay;
+            printf("\x1b[43m");
+            printf("\n\033[1;35m **** 최고 레벨 달성을 축하한다능 %d 쨔응..!!! **** \n\n\n", userid);
+            Ending();
+            printf("           %d 의 선택은 ?  :", userid);
+            scanf_s("%d", &replay);
+
+            switch (replay)
+            {
+            case 1: level = 0;
+                break;
+            case 2: Isgame = false;
+                break;
+            default:
+                break;
+            }
+        }
+
+        system("@cls||clear");
         switch (level)
         {
-        case 0:  Num = 100; buy = 2000;  sell = 0;  break;
-        case 1:  Num = 100; buy = 4000;
-            if (furnitureBuy) {
+        case 0:
+            Num = 100;
+            buy = 2000;
+            sell = 0;
+            previousSell = 0; // 레벨 0에서는 초기화
+            break;
+
+        case 1:
+            Num = 95;
+            buy = 4000;
+            sell = previousSell; // 이전 값 누적
+            if (!furnitureBuy) {
+                sell += 10000; // 레벨 1의 기본 판매 가격
+            }
+            else {
                 switch (furnitureBuy)
                 {
                 case 1:
-                    sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
+                    sell += (5200 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
                     break;
                 case 2:
-                    sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
+                    sell += (9700 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
                     break;
                 case 3:
-                    sell = (128000 * 2) + housePrice[level]; // 황금변기의 가격은 128000 원
+                    sell += (128000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
                     break;
                 case 4:
-                    sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
+                    sell += (34000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
                     break;
                 default:
                     break;
                 }
             }
-            else sell += 10000; break;// 이거 swtich 함수 따로 만들어서 넣었는데 계속 오류나서 일일히 넣음 ㅜㅜ
-        case 2:  Num = 99; buy = 6000; if (furnitureBuy) {
-            switch (furnitureBuy)
-            {
-            case 1:
-                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
-                break;
-            case 2:
-                sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
-                break;
-            case 3:
-                sell = (128000 * 2) + housePrice[level]; // 황금변기의 가격은 128000 원
-                break;
-            case 4:
-                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
-                break;
-            default:
-                break;
+            previousSell = sell; // 현재 판매 가격 저장
+            break;
+
+        case 2:
+            Num = 90;
+            buy = 6000;
+            sell = previousSell; // 이전 값 누적
+            if (!furnitureBuy) {
+                sell += 20000; // 레벨 2의 기본 판매 가격
             }
-        }
-              else  sell += 20000; break;
-        case 3:  Num = 97; buy = 8000; if (furnitureBuy) {
-            switch (furnitureBuy)
-            {
-            case 1:
-                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
-                break;
-            case 2:
-                sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
-                break;
-            case 3:
-                sell = (128000 * 2) + housePrice[level]; // 황금변기의 가격은 128000 원
-                break;
-            case 4:
-                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
-                break;
-            default:
-                break;
+            else {
+                switch (furnitureBuy)
+                {
+                case 1:
+                    sell += (5200 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 2:
+                    sell += (9700 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 3:
+                    sell += (128000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 4:
+                    sell += (34000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                default:
+                    break;
+                }
             }
-        }
-              else  sell = 25000; break;
-        case 4:  Num = 95; buy = 10000; if (furnitureBuy) {
-            switch (furnitureBuy)
-            {
-            case 1:
-                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
-                break;
-            case 2:
-                sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
-                break;
-            case 3:
-                sell = (128000 * 2) + housePrice[level]; // 황금변기의 가격은 128000 원
-                break;
-            case 4:
-                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
-                break;
-            default:
-                break;
+            previousSell = sell; // 현재 판매 가격 저장
+            break;
+
+        case 3:
+            Num = 85;
+            buy = 8000;
+            sell = previousSell; // 이전 값 누적
+            if (!furnitureBuy) {
+                sell += 25000; // 레벨 3의 기본 판매 가격
             }
-        }
-              else sell = 30000; break;
-        case 5:  Num = 93; buy = 12000; if (furnitureBuy) {
-            switch (furnitureBuy)
-            {
-            case 1:
-                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
-                break;
-            case 2:
-                sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
-                break;
-            case 3:
-                sell = (128000 * 2) + housePrice[level]; // 황금변기의 가격은 128000 원
-                break;
-            case 4:
-                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
-                break;
-            default:
-                break;
+            else {
+                switch (furnitureBuy)
+                {
+                case 1:
+                    sell += (5200 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 2:
+                    sell += (9700 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 3:
+                    sell += (128000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 4:
+                    sell += (34000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                default:
+                    break;
+                }
             }
-        }
-              else sell += 35000; break;
-        case 6:  Num = 91; buy = 14000; if (furnitureBuy) {
-            switch (furnitureBuy)
-            {
-            case 1:
-                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
-                break;
-            case 2:
-                sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
-                break;
-            case 3:
-                sell = (128000 * 2) + housePrice[level]; // 황금변기의 가격은 128000 원
-                break;
-            case 4:
-                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
-                break;
-            default:
-                break;
+            previousSell = sell; // 현재 판매 가격 저장
+            break;
+
+        case 4:
+            Num = 80;
+            buy = 10000;
+            sell = previousSell; // 이전 값 누적
+            if (!furnitureBuy) {
+                sell += 30000; // 레벨 4의 기본 판매 가격
             }
-        }
-              else sell += 40000; break;
-        case 7:  Num = 88; buy = 16000; if (furnitureBuy) {
-            switch (furnitureBuy)
-            {
-            case 1:
-                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
-                break;
-            case 2:
-                sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
-                break;
-            case 3:
-                sell = (128000 * 2) + housePrice[level]; // 황금변기의 가격은 128000 원
-                break;
-            case 4:
-                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
-                break;
-            default:
-                break;
+            else {
+                switch (furnitureBuy)
+                {
+                case 1:
+                    sell += (5200 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 2:
+                    sell += (9700 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 3:
+                    sell += (128000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 4:
+                    sell += (34000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                default:
+                    break;
+                }
             }
-        }
-              else sell += 45000; break;
-        case 8:  Num = 85; buy = 18000; if (furnitureBuy) {
-            switch (furnitureBuy)
-            {
-            case 1:
-                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
-                break;
-            case 2:
-                sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
-                break;
-            case 3:
-                sell = (128000 * 2) + housePrice[level]; // 황금변기의 가격은 128000 원
-                break;
-            case 4:
-                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
-                break;
-            default:
-                break;
+            previousSell = sell; // 현재 판매 가격 저장
+            break;
+
+        case 5:
+            Num = 75;
+            buy = 12000;
+            sell = previousSell; // 이전 값 누적
+            if (!furnitureBuy) {
+                sell += 35000; // 레벨 5의 기본 판매 가격
             }
-        }
-              else sell += 50000; break;
-        case 9:  Num = 82; buy = 20000; if (furnitureBuy) {
-            switch (furnitureBuy)
-            {
-            case 1:
-                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
-                break;
-            case 2:
-                sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
-                break;
-            case 3:
-                sell = (128000 * 2) + housePrice[level]; // 황금변기의 가격은 128000 원
-                break;
-            case 4:
-                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
-                break;
-            default:
-                break;
+            else {
+                switch (furnitureBuy)
+                {
+                case 1:
+                    sell += (5200 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 2:
+                    sell += (9700 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 3:
+                    sell += (128000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 4:
+                    sell += (34000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                default:
+                    break;
+                }
             }
-        }
-              else sell += 55000; break;
-        case 10: Num = 79; buy = 22000; if (furnitureBuy) {
-            switch (furnitureBuy)
-            {
-            case 1:
-                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
-                break;
-            case 2:
-                sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
-                break;
-            case 3:
-                sell = (128000 * 2) + housePrice[level]; // 황금변기의 가격은 128000 원
-                break;
-            case 4:
-                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
-                break;
-            default:
-                break;
+            previousSell = sell; // 현재 판매 가격 저장
+            break;
+
+        case 6:
+            Num = 70;
+            buy = 14000;
+            sell = previousSell; // 이전 값 누적
+            if (!furnitureBuy) {
+                sell += 40000; // 레벨 6의 기본 판매 가격
             }
-        }
-               else sell += 60000; break;
-        case 11: Num = 74; buy = 24000; if (furnitureBuy) {
-            switch (furnitureBuy)
-            {
-            case 1:
-                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
-                break;
-            case 2:
-                sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
-                break;
-            case 3:
-                sell = (128000 * 2) + housePrice[level]; // 황금변기의 가격은 128000 원
-                break;
-            case 4:
-                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
-                break;
-            default:
-                break;
+            else {
+                switch (furnitureBuy)
+                {
+                case 1:
+                    sell += (5200 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 2:
+                    sell += (9700 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 3:
+                    sell += (128000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 4:
+                    sell += (34000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                default:
+                    break;
+                }
             }
-        }
-               else sell += 65000; break;
-        case 12: Num = 69; buy = 26000; if (furnitureBuy) {
-            switch (furnitureBuy)
-            {
-            case 1:
-                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
-                break;
-            case 2:
-                sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
-                break;
-            case 3:
-                sell = (128000 * 2) + housePrice[level]; // 황금변기의 가격은 128000 원
-                break;
-            case 4:
-                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
-                break;
-            default:
-                break;
+            previousSell = sell; // 현재 판매 가격 저장
+            break;
+
+        case 7:
+            Num = 65;
+            buy = 16000;
+            sell = previousSell; // 이전 값 누적
+            if (!furnitureBuy) {
+                sell += 45000; // 레벨 7의 기본 판매 가격
             }
-        }
-               else sell += 70000; break;
-        case 13: Num = 64; buy = 28000; if (furnitureBuy) {
-            switch (furnitureBuy)
-            {
-            case 1:
-                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
-                break;
-            case 2:
-                sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
-                break;
-            case 3:
-                sell = (128000 * 2) + housePrice[level]; // 황금변기의 가격은 128000 원
-                break;
-            case 4:
-                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
-                break;
-            default:
-                break;
+            else {
+                switch (furnitureBuy)
+                {
+                case 1:
+                    sell += (5200 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 2:
+                    sell += (9700 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 3:
+                    sell += (128000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 4:
+                    sell += (34000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                default:
+                    break;
+                }
             }
-        }
-               else sell += 75000; break;
-        case 14: Num = 60; buy = 30000; if (furnitureBuy) {
-            switch (furnitureBuy)
-            {
-            case 1:
-                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
-                break;
-            case 2:
-                sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
-                break;
-            case 3:
-                sell = (128000 * 2) + housePrice[level]; // 황금변기의 가격은 128000 원
-                break;
-            case 4:
-                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
-                break;
-            default:
-                break;
+            previousSell = sell; // 현재 판매 가격 저장
+            break;
+
+        case 8:
+            Num = 60;
+            buy = 18000;
+            sell = previousSell; // 이전 값 누적
+            if (!furnitureBuy) {
+                sell += 50000; // 레벨 8의 기본 판매 가격
             }
-        }
-               else sell += 80000; break;
-        case 15: Num = 55; buy = 33000; if (furnitureBuy) {
-            switch (furnitureBuy)
-            {
-            case 1:
-                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
-                break;
-            case 2:
-                sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
-                break;
-            case 3:
-                sell = (128000 * 2) + housePrice[level]; // 황금변기의 가격은 128000 원
-                break;
-            case 4:
-                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
-                break;
-            default:
-                break;
+            else {
+                switch (furnitureBuy)
+                {
+                case 1:
+                    sell += (5200 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 2:
+                    sell += (9700 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 3:
+                    sell += (128000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 4:
+                    sell += (34000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                default:
+                    break;
+                }
             }
-        }
-               else sell += 85000; break;
-        case 16: Num = 50; buy = 36000; if (furnitureBuy) {
-            switch (furnitureBuy)
-            {
-            case 1:
-                sell = (5200 * 2) + housePrice[level]; // 꽃무늬 벽지의 가격은 5200 원
-                break;
-            case 2:
-                sell = (9700 * 2) + housePrice[level]; // 노란색 바닥의 가격은 9700 원
-                break;
-            case 3:
-                sell = (128000 * 2) + housePrice[level]; // 황금변기의 가격은 128000 원
-                break;
-            case 4:
-                sell = (34000 * 2) + housePrice[level]; // 알록달록옷장의 가격은 34000 원
-                break;
-            default:
-                break;
+            previousSell = sell; // 현재 판매 가격 저장
+            break;
+
+        case 9:
+            Num = 55;
+            buy = 20000;
+            sell = previousSell; // 이전 값 누적
+            if (!furnitureBuy) {
+                sell += 55000; // 레벨 9의 기본 판매 가격
             }
+            else {
+                switch (furnitureBuy)
+                {
+                case 1:
+                    sell += (5200 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 2:
+                    sell += (9700 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 3:
+                    sell += (128000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 4:
+                    sell += (34000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                default:
+                    break;
+                }
+            }
+            previousSell = sell; // 현재 판매 가격 저장
+            break;
+
+        case 10:
+            Num = 50;
+            buy = 22000;
+            sell = previousSell; // 이전 값 누적
+            if (!furnitureBuy) {
+                sell += 60000; // 레벨 10의 기본 판매 가격
+            }
+            else {
+                switch (furnitureBuy)
+                {
+                case 1:
+                    sell += (5200 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 2:
+                    sell += (9700 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 3:
+                    sell += (128000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 4:
+                    sell += (34000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                default:
+                    break;
+                }
+            }
+            previousSell = sell; // 현재 판매 가격 저장
+            break;
+
+        case 11:
+            Num = 45;
+            buy = 24000;
+            sell = previousSell; // 이전 값 누적
+            if (!furnitureBuy) {
+                sell += 65000; // 레벨 11의 기본 판매 가격
+            }
+            else {
+                switch (furnitureBuy)
+                {
+                case 1:
+                    sell += (5200 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 2:
+                    sell += (9700 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 3:
+                    sell += (128000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 4:
+                    sell += (34000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                default:
+                    break;
+                }
+            }
+            previousSell = sell; // 현재 판매 가격 저장
+            break;
+
+        case 12:
+            Num = 40;
+            buy = 26000;
+            sell = previousSell; // 이전 값 누적
+            if (!furnitureBuy) {
+                sell += 70000; // 레벨 12의 기본 판매 가격
+            }
+            else {
+                switch (furnitureBuy)
+                {
+                case 1:
+                    sell += (5200 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 2:
+                    sell += (9700 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 3:
+                    sell += (128000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 4:
+                    sell += (34000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                default:
+                    break;
+                }
+            }
+            previousSell = sell; // 현재 판매 가격 저장
+            break;
+
+        case 13:
+            Num = 35;
+            buy = 28000;
+            sell = previousSell; // 이전 값 누적
+            if (!furnitureBuy) {
+                sell += 75000; // 레벨 13의 기본 판매 가격
+            }
+            else {
+                switch (furnitureBuy)
+                {
+                case 1:
+                    sell += (5200 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 2:
+                    sell += (9700 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 3:
+                    sell += (128000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 4:
+                    sell += (34000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                default:
+                    break;
+                }
+            }
+            previousSell = sell; // 현재 판매 가격 저장
+            break;
+
+        case 14:
+            Num = 30;
+            buy = 30000;
+            sell = previousSell; // 이전 값 누적
+            if (!furnitureBuy) {
+                sell += 80000; // 레벨 14의 기본 판매 가격
+            }
+            else {
+                switch (furnitureBuy)
+                {
+                case 1:
+                    sell += (5200 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 2:
+                    sell += (9700 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 3:
+                    sell += (128000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 4:
+                    sell += (34000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                default:
+                    break;
+                }
+            }
+            previousSell = sell; // 현재 판매 가격 저장
+            break;
+
+        case 15:
+            Num = 25;
+            buy = 33000;
+            sell = previousSell; // 이전 값 누적
+            if (!furnitureBuy) {
+                sell += 85000; // 레벨 15의 기본 판매 가격
+            }
+            else {
+                switch (furnitureBuy)
+                {
+                case 1:
+                    sell += (5200 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 2:
+                    sell += (9700 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 3:
+                    sell += (128000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 4:
+                    sell += (34000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                default:
+                    break;
+                }
+            }
+            previousSell = sell; // 현재 판매 가격 저장
+            break;
+
+        case 16:
+            Num = 20;
+            buy = 36000;
+            sell = previousSell; // 이전 값 누적
+            if (!furnitureBuy) {
+                sell += 90000; // 레벨 16의 기본 판매 가격
+            }
+            else {
+                switch (furnitureBuy)
+                {
+                case 1:
+                    sell += (5200 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 2:
+                    sell += (9700 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 3:
+                    sell += (128000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                case 4:
+                    sell += (34000 * 2) + housePrice[level];
+                    furnitureBuy = 0; // 초기화
+                    break;
+                default:
+                    break;
+                }
+            }
+            previousSell = sell; // 현재 판매 가격 저장
+            break;
+        default:
+            // 예상치 못한 level 값 처리
+            Num = 0;
+            buy = 0;
+            sell = 0;
+            previousSell = 0; // 초기화
+            break;
         }
-               else sell += 90000; break;
-        default: Num = 100; buy = 2000; sell += 0;     break;
+        if (Isgame)
+        {
+            maingame();
+            printf("\n계속하려면 아무 키나 누르십시오.\n");
+            _getch();
         }
-        maingame();
-        printf("\n계속하려면 아무 키나 누르십시오.\n");
-        _getch();
     }
     return 0;
 }
@@ -416,6 +660,7 @@ void Store()
     printf("        인테리어 상점\n");
     printf("       < 오늘의 아이템  >\n");
     printf("-------------------------------\n");
+    printf("     0. 게임 화면으로 돌아가기 \n\n");
 
     for (int i = 0; i < MAX_FURNITURE; ++i) {
         if (furnitureAvailable[i]) {
@@ -530,8 +775,6 @@ void Store()
         else {
             printf("이미 판매된 가구입니다.\n");
         }
-        break;
-    case 5:
         break;
     default:
         maingame();
@@ -662,9 +905,9 @@ int maingame()
                 // 성공화면 출력
                 wallet -= buy;
                 printf("\n\n지갑 : %d 원\n\n", wallet);
-                printf("\033[0;32ml───────────────l\n\033[0m");
-                printf("\033[0;32ml♡♡Success♡♡l\n\033[0m");
-                printf("\033[0;32ml───────────────l\n\033[0m");
+                printf("\033[0;32ml───────────────────l\n\033[0m");
+                printf("\033[0;32ml  ♡♡Success♡♡  l\n\033[0m");
+                printf("\033[0;32ml───────────────────l\n\033[0m");
                 printf("\033[0;32m    ∧ ∧ ||\n\033[0m");
                 printf("\033[0;32m　 ( 'ω' ||\n\033[0m");
                 printf("\033[0;32m　 /　つ  Φ\n\033[0m");
@@ -676,11 +919,12 @@ int maingame()
                 level++;
             }
             else
-            {
+            {   
                 sellHome = false;
                 tnf = false;
                 // 실패화면 출력
                 wallet -= buy;
+                previousSell = housePrice[level-2];
                 printf("\033[0;31ml───────────────────────l\n\033[0m");
                 printf("\033[0;31ml넌 갱생불가능 거지다   l\n\033[0m");
                 printf("\033[0;31ml───────────────────────l\n\033[0m");
@@ -690,7 +934,7 @@ int maingame()
                 printf("집 '%s' 을 잃었습니다.\n", house[level]);
                 nowlevel = level + 1;
                 futurelevel = level + 2;
-                level = level-1;
+                level = level - 1;
 
                 for (int i = 0; i < MAX_FURNITURE; ++i) {
                     furnitureAvailable[i] = true;
@@ -740,13 +984,14 @@ int maingame()
         choice = 4;
         break;
     }
-    PostUser();
+  //  PostUser();
 
 }
 
 int login()
 {
     system("@cls||clear");
+    printf("      ** 로그인시 숫자만 입력해주세요. **\n\n");
     loginUI();
     printf("\n\033[0;33m   ∧∧              로 그 인\n\033[0;33m");
     printf("　(oωo)---------------------------------------\n");

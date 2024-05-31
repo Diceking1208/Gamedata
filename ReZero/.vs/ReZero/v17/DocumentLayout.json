@@ -1,25 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\minseo\\ReZero\\",
+  "WorkspaceRootPath": "D:\\Gamedata\\ReZero\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|D:\\minseo\\ReZero\\ReZero\\game.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|D:\\Gamedata\\ReZero\\ReZero\\game.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|solutionrelative:ReZero\\game.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|D:\\minseo\\ReZero\\ReZero\\UI.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|D:\\Gamedata\\ReZero\\ReZero\\UIon.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|solutionrelative:ReZero\\UIon.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|D:\\Gamedata\\ReZero\\ReZero\\UI.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|solutionrelative:ReZero\\UI.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|D:\\minseo\\ReZero\\ReZero\\Re.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|D:\\Gamedata\\ReZero\\ReZero\\Re.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|solutionrelative:ReZero\\Re.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\82109\\Downloads\\char.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|D:\\minseo\\ReZero\\ReZero\\UIon.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{021AB4FD-11E3-424F-A385-ADFF2788722B}|ReZero\\ReZero.vcxproj|solutionrelative:ReZero\\UIon.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,34 +35,30 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "game.c",
-              "DocumentMoniker": "D:\\minseo\\ReZero\\ReZero\\game.c",
+              "DocumentMoniker": "D:\\Gamedata\\ReZero\\ReZero\\game.c",
               "RelativeDocumentMoniker": "ReZero\\game.c",
-              "ToolTip": "D:\\minseo\\ReZero\\ReZero\\game.c",
+              "ToolTip": "D:\\Gamedata\\ReZero\\ReZero\\game.c",
               "RelativeToolTip": "ReZero\\game.c",
-<<<<<<< HEAD
-              "ViewState": "AQIAACsAAAAAAAAAAAAAAFICAAAXAAAA",
-=======
-              "ViewState": "AQIAAHECAAAAAAAAAAAAAIECAAAcAAAA",
->>>>>>> 7f4b5dd3c0ebc16c2b9a63b4de9fe93f012cb8ff
+              "ViewState": "AQIAABcBAAAAAAAAAAAAACEBAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-05-06T08:22:27.781Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "UIon.c",
-              "DocumentMoniker": "D:\\minseo\\ReZero\\ReZero\\UIon.c",
+              "DocumentMoniker": "D:\\Gamedata\\ReZero\\ReZero\\UIon.c",
               "RelativeDocumentMoniker": "ReZero\\UIon.c",
-              "ToolTip": "D:\\minseo\\ReZero\\ReZero\\UIon.c",
+              "ToolTip": "D:\\Gamedata\\ReZero\\ReZero\\UIon.c",
               "RelativeToolTip": "ReZero\\UIon.c",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-05-06T08:22:28.126Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "char.c",
               "DocumentMoniker": "C:\\Users\\82109\\Downloads\\char.c",
               "ToolTip": "C:\\Users\\82109\\Downloads\\char.c",
@@ -71,11 +67,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Re.h",
-              "DocumentMoniker": "D:\\minseo\\ReZero\\ReZero\\Re.h",
+              "DocumentMoniker": "D:\\Gamedata\\ReZero\\ReZero\\Re.h",
               "RelativeDocumentMoniker": "ReZero\\Re.h",
-              "ToolTip": "D:\\minseo\\ReZero\\ReZero\\Re.h",
+              "ToolTip": "D:\\Gamedata\\ReZero\\ReZero\\Re.h",
               "RelativeToolTip": "ReZero\\Re.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
@@ -83,16 +79,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UI.c",
-              "DocumentMoniker": "D:\\minseo\\ReZero\\ReZero\\UI.c",
+              "DocumentMoniker": "D:\\Gamedata\\ReZero\\ReZero\\UI.c",
               "RelativeDocumentMoniker": "ReZero\\UI.c",
-              "ToolTip": "D:\\minseo\\ReZero\\ReZero\\UI.c",
+              "ToolTip": "D:\\Gamedata\\ReZero\\ReZero\\UI.c",
               "RelativeToolTip": "ReZero\\UI.c",
-              "ViewState": "AQIAAJ0CAAAAAAAAAAAAAKcCAAAWAAAA",
+              "ViewState": "AQIAAJ0BAAAAAAAAAAAqwP4BAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-05-06T08:22:28.164Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-06T08:22:28.164Z"
             }
           ]
         }
