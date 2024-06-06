@@ -1,5 +1,5 @@
 #include "Re.h"
-
+//2023 27047
 int userid = 0;
 int Isgame = 1;
 int isTry = 0;
@@ -50,7 +50,7 @@ void PostUser()
     time_t now = time(NULL);
     struct tm* local_time = localtime(&now);
 
-    sprintf_s(command, sizeof(command), "curl -s -d \"{\\\"로그\\\":\\\"%d\\\",\\\"접속신호\\\":\\\"%s\\\",\\\"플레이어ID\\\":\\\"%d\\\",\\\"접속일시\\\":\\\"%d월 %d일\\\",\\\"소지금\\\":%d,\\\"현재단계\\\":%d,\\\"도전단계\\\":%d,\\\"선택\\\":\\\"%d\\\",\\\"성공여부\\\":\\\"%s\\\", \\\"구매가구\\\":\\\"%d\\\",\\\"집값\\\":%d,\\\"집판매\\\":\\\"%s\\\",\\\"충전금액\\\":%d,\\\"시간\\\":\\\"%d:%d:%d\\\"}\" https://script.google.com/macros/s/AKfycbwqtqL36h1VSfxrfvMuBSWWHOoJQsHMDR2afAXNbmFp5Uiafz3e1ZnwX-vcjDjc5KVS/exec  > NUL 2>&1",
+    sprintf_s(command, sizeof(command), "curl -s -d \"{\\\"로그\\\":\\\"%d\\\",\\\"접속신호\\\":\\\"%s\\\",\\\"플레이어ID\\\":\\\"%d\\\",\\\"접속일시\\\":\\\"%d월 %d일\\\",\\\"소지금\\\":%d,\\\"현재단계\\\":%d,\\\"도전단계\\\":%d,\\\"선택\\\":\\\"%d\\\",\\\"성공여부\\\":\\\"%s\\\", \\\"구매가구\\\":\\\"%d\\\",\\\"집값\\\":%d,\\\"집판매\\\":\\\"%s\\\",\\\"충전금액\\\":%d,\\\"시간\\\":\\\"%d:%d:%d\\\"}\" https://script.google.com/macros/s/AKfycbyPzAjBFsB-JE7zhfMNyUSRrZqjCYHuQHMpZzaqfRVJpoqRtdbBCvQc6LYq4dZkXkZX/exec  > NUL 2>&1",
         nextLog, sign ? "sign" : " ", userid, local_time->tm_mon + 1, local_time->tm_mday, wallet, nowlevel, futurelevel, choice, tnf ? "success" : "fail", furnitureNum, sell + buyMoney, sellHome ? "Sell" : " ", charge, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
     system(command);
 }
@@ -68,7 +68,6 @@ int main(void)
         {
             PostUser(); //플레이 하지 않아도 접속 신호 보내는 거임!! 순서 바꾸지 말아주세용용용
             login();
-            PostUser();
             sign = false;
         }
         system("@cls||clear");
@@ -987,29 +986,42 @@ int maingame()
 
 }
 
+    int count = 0;
+    int num9 = 0;
+    bool notsign = false;
+    bool roop = true;
 int login()
 {
-    system("@cls||clear");
-    loginUI();
-    printf("\n\033[0;33m   ∧∧              로 그 인\n\033[0;33m");
-    printf("　(oωo)---------------------------------------\n");
-    printf("＿(_つ/￣￣￣/＿ \n");
-    printf("　 ＼/　　　/    학번을 입력해주세Yo \n ");
-    printf("　　￣￣￣￣    ID: ");
-    scanf_s("%d", &userid);
 
-    switch (userid)
+    while (roop)
     {
-        int input = 0;
-    case 99999:
-        wallet = 999999999;
-        printf(" 금액은 999,999,999원으로 시작됩니다. \n");
-        printf(" 시작할 레벨을 입력하세요 :  ");
-        scanf_s("%d", &input);
-        level = input;
-        break;
-    default: level = 0;
-        break;
+        count = 0;
+        num9 = 0;
+        system("@cls||clear");
+        if(notsign)
+        {
+            printf("        정확한 학번을 입력해주세요.\n");
+        }
+        loginUI();
+        
+        printf("\n\033[0;33m   ∧∧              로 그 인\n\033[0;33m");
+        printf("　(oωo)---------------------------------------\n");
+        printf("＿(_つ/￣￣￣/＿ \n");
+        printf("　 ＼/　　　/    학번을 입력해주세Yo \n ");
+        printf("　　￣￣￣￣    ID: ");
+        scanf_s("%d", &userid);
+        num9 = userid;  //학번 자릿수 계산을 위한 num9변수
+        while (num9 > 0)
+        {
+            num9 /= 10;
+            count++;
+        }
+        if (count == 9)
+        {
+            level = 0; roop = false;
+        }
+        else { printf("\n다시 입력해주세요"); roop = true; notsign = true; }
     }
+
     return 0;
 }
