@@ -1,9 +1,9 @@
 ﻿  game.c
-C:\gm\ReZero\ReZero\game.c(70,13): warning C4013: 'login'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\gm\ReZero\ReZero\game.c(642,13): warning C4013: 'maingame'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\gm\ReZero\ReZero\game.c(69,13): warning C4013: 'login'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\gm\ReZero\ReZero\game.c(641,13): warning C4013: 'maingame'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
   코드를 생성하고 있습니다.
-  12 of 37 functions (32.4%) were compiled, the rest were copied from previous compilation.
+  1 of 37 functions ( 2.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    23 functions had inline decision re-evaluated but remain unchanged
+    2 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
   ReZero.vcxproj -> C:\gm\ReZero\x64\Release\ReZero.exe

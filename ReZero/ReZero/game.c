@@ -1,5 +1,4 @@
 #include "Re.h"
-//2023 27047
 int userid = 0;
 int Isgame = 1;
 int isTry = 0;
@@ -50,7 +49,7 @@ void PostUser()
     time_t now = time(NULL);
     struct tm* local_time = localtime(&now);
 
-    sprintf_s(command, sizeof(command), "curl -s -d \"{\\\"로그\\\":\\\"%d\\\",\\\"접속신호\\\":\\\"%s\\\",\\\"플레이어ID\\\":\\\"%d\\\",\\\"접속일시\\\":\\\"%d월 %d일\\\",\\\"소지금\\\":%d,\\\"현재단계\\\":%d,\\\"도전단계\\\":%d,\\\"선택\\\":\\\"%d\\\",\\\"성공여부\\\":\\\"%s\\\", \\\"구매가구\\\":\\\"%d\\\",\\\"집값\\\":%d,\\\"집판매\\\":\\\"%s\\\",\\\"충전금액\\\":%d,\\\"시간\\\":\\\"%d:%d:%d\\\"}\" https://script.google.com/macros/s/AKfycbyPzAjBFsB-JE7zhfMNyUSRrZqjCYHuQHMpZzaqfRVJpoqRtdbBCvQc6LYq4dZkXkZX/exec  > NUL 2>&1",
+    sprintf_s(command, sizeof(command), "curl -s -d \"{\\\"로그\\\":\\\"%d\\\",\\\"접속신호\\\":\\\"%s\\\",\\\"플레이어ID\\\":\\\"%d\\\",\\\"접속일시\\\":\\\"%d월 %d일\\\",\\\"소지금\\\":%d,\\\"현재단계\\\":%d,\\\"도전단계\\\":%d,\\\"선택\\\":\\\"%d\\\",\\\"성공여부\\\":\\\"%s\\\", \\\"구매가구\\\":\\\"%d\\\",\\\"집값\\\":%d,\\\"집판매\\\":\\\"%s\\\",\\\"충전금액\\\":%d,\\\"시간\\\":\\\"%d:%d:%d\\\"}\" https://script.google.com/macros/s/AKfycbwqtqL36h1VSfxrfvMuBSWWHOoJQsHMDR2afAXNbmFp5Uiafz3e1ZnwX-vcjDjc5KVS/exec  > NUL 2>&1",
         nextLog, sign ? "sign" : " ", userid, local_time->tm_mon + 1, local_time->tm_mday, wallet, nowlevel, futurelevel, choice, tnf ? "success" : "fail", furnitureNum, sell + buyMoney, sellHome ? "Sell" : " ", charge, local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
     system(command);
 }
@@ -932,7 +931,7 @@ int maingame()
                 printf("집 '%s' 을 잃었습니다.\n", house[level]);
                 nowlevel = level + 1;
                 futurelevel = level + 2;
-                level = level - 1;
+                level -=  1;
                 previousSell = housePrice[level - 1];//강화실패시 집판매 금액 조절
                 for (int i = 0; i < MAX_FURNITURE; ++i) {
                     furnitureAvailable[i] = true;
